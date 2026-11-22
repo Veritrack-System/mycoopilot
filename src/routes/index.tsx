@@ -47,6 +47,23 @@ function Index() {
   return (
     <>
       <style>{capturedCSS}</style>
+      <style>{`
+        .framer-LIPxQ :is(a, button, [role="button"]) {
+          -webkit-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          user-select: none;
+        }
+        .framer-LIPxQ[data-selection="true"] :is(a, button, [role="button"])::selection,
+        .framer-LIPxQ[data-selection="true"] :is(a, button, [role="button"]) *::selection,
+        .framer-LIPxQ [data-selection="true"] :is(a, button, [role="button"])::selection,
+        .framer-LIPxQ [data-selection="true"] :is(a, button, [role="button"]) *::selection {
+          background-color: transparent;
+          color: inherit;
+        }
+        .framer-LIPxQ :is(a, button, [role="button"]):focus:not(:focus-visible) {
+          outline: none;
+        }
+      `}</style>
       <div id="main">
         <div
           className="framer-LIPxQ framer-Zqalg framer-d3BN7 framer-EP1im framer-128kipa items-center flex-col flex-nowrap content-center justify-start [gap:0] [overflow:hidden]"
@@ -1952,7 +1969,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
         href="/"
       >
         <div className="framer-kxb2zt-container" style={{ opacity: "1" }}>
-          <div className="framer-g6S8P framer-1ppeyn8" style={{ opacity: "1" }} tabIndex={0}>
+          <div className="framer-g6S8P framer-1ppeyn8" style={{ opacity: "1" }}>
             <div
               className="framer-1lz6zv4"
               style={
@@ -2358,7 +2375,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
           href="/"
         >
           <div className="framer-kxb2zt-container" style={{ opacity: "1" }}>
-            <div className="framer-g6S8P framer-1ppeyn8" style={{ opacity: "1" }} tabIndex={0}>
+            <div className="framer-g6S8P framer-1ppeyn8" style={{ opacity: "1" }}>
               <div
                 className="framer-1lz6zv4"
                 style={
@@ -2431,7 +2448,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
           tabIndex={0}
         >
           <div className="framer-eda3z9-container" style={{ opacity: "1" }}>
-            <div className="framer-WH8C6 framer-1qd80pl" style={{ opacity: "1" }} tabIndex={0}>
+            <div className="framer-WH8C6 framer-1qd80pl" style={{ opacity: "1" }}>
               <div
                 className="framer-1jxc6iw"
                 style={{
