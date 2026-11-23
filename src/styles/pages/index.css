@@ -1774,7 +1774,7 @@ span.framer-text:not([data-text-fill]) {
     --framer-font-family-preview,
     var(
       --framer-blockquote-font-family,
-      var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+      var(--framer-font-family, "Eudoxus Sans", sans-serif)
     )
   );
   font-style: var(
@@ -1983,7 +1983,7 @@ code.framer-text,
 code.framer-text span.framer-text:not([data-text-fill]) {
   font-family: var(
     --framer-code-font-family,
-    var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+    var(--framer-font-family, "Eudoxus Sans", sans-serif)
   );
   font-style: var(
     --framer-blockquote-font-style,
@@ -2040,7 +2040,7 @@ span.framer-text[data-nested-link] span.framer-text:not([data-text-fill]) {
       --framer-link-font-family,
       var(
         --framer-blockquote-font-family,
-        var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+        var(--framer-font-family, "Eudoxus Sans", sans-serif)
       )
     )
   );
@@ -2164,7 +2164,7 @@ code.framer-text span.framer-text[data-nested-link],
 code.framer-text span.framer-text[data-nested-link] span.framer-text:not([data-text-fill]) {
   font-family: var(
     --framer-code-font-family,
-    var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+    var(--framer-font-family, "Eudoxus Sans", sans-serif)
   );
   font-style: var(
     --framer-blockquote-font-style,
@@ -2228,7 +2228,7 @@ span.framer-text[data-nested-link]:hover span.framer-text:not([data-text-fill]) 
         --framer-link-font-family,
         var(
           --framer-blockquote-font-family,
-          var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+          var(--framer-font-family, "Eudoxus Sans", sans-serif)
         )
       )
     )
@@ -2488,7 +2488,7 @@ span.framer-text[data-framer-page-link-current] span.framer-text:not([data-text-
       --framer-link-current-font-family,
       var(
         --framer-link-font-family,
-        var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+        var(--framer-font-family, "Eudoxus Sans", sans-serif)
       )
     )
   );
@@ -2650,7 +2650,7 @@ code.framer-text
   span.framer-text:not([data-text-fill]) {
   font-family: var(
     --framer-code-font-family,
-    var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+    var(--framer-font-family, "Eudoxus Sans", sans-serif)
   );
   font-style: var(--framer-code-font-style, var(--framer-font-style, normal));
   font-weight: var(--framer-code-font-weight, var(--framer-font-weight, 400));
@@ -2726,7 +2726,7 @@ span.framer-text[data-framer-page-link-current]:hover span.framer-text:not([data
         --framer-link-current-font-family,
         var(
           --framer-link-font-family,
-          var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+          var(--framer-font-family, "Eudoxus Sans", sans-serif)
         )
       )
     )
@@ -3078,7 +3078,7 @@ th.framer-text {
   cursor: inherit;
 }
 [data-framer-component-type="DeprecatedRichText"] .text-styles-preset-reset {
-  --framer-font-family: Inter, Inter Placeholder, sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
   --framer-font-style: normal;
   --framer-font-weight: 500;
   --framer-text-color: #000;
@@ -3114,7 +3114,7 @@ th.framer-text {
 [data-framer-component-type="DeprecatedRichText"] ol,
 [data-framer-component-type="DeprecatedRichText"] ul,
 [data-framer-component-type="DeprecatedRichText"] span:not([data-text-fill]) {
-  font-family: var(--framer-font-family, Inter, Inter Placeholder, sans-serif);
+  font-family: var(--framer-font-family, "Eudoxus Sans", sans-serif);
   font-style: var(--framer-font-style, normal);
   font-weight: var(--framer-font-weight, 400);
   color: var(--framer-text-color, #000);
@@ -3149,7 +3149,7 @@ th.framer-text {
 [data-framer-component-type="DeprecatedRichText"] a span:not([data-text-fill]) {
   font-family: var(
     --framer-link-font-family,
-    var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+    var(--framer-font-family, "Eudoxus Sans", sans-serif)
   );
   font-style: var(--framer-link-font-style, var(--framer-font-style, normal));
   font-weight: var(--framer-link-font-weight, var(--framer-font-weight, 400));
@@ -3163,7 +3163,7 @@ th.framer-text {
 [data-framer-component-type="DeprecatedRichText"] a:hover span:not([data-text-fill]) {
   font-family: var(
     --framer-link-hover-font-family,
-    var(--framer-link-font-family, var(--framer-font-family, Inter, Inter Placeholder, sans-serif))
+    var(--framer-link-font-family, var(--framer-font-family, "Eudoxus Sans", sans-serif))
   );
   font-style: var(
     --framer-link-hover-font-style,
@@ -3200,7 +3200,7 @@ th.framer-text {
   span:not([data-text-fill]):not([data-nested-link]) {
   font-family: var(
     --framer-link-current-font-family,
-    var(--framer-link-font-family, var(--framer-font-family, Inter, Inter Placeholder, sans-serif))
+    var(--framer-link-font-family, var(--framer-font-family, "Eudoxus Sans", sans-serif))
   );
   font-style: var(
     --framer-link-current-font-style,
@@ -3241,7 +3241,7 @@ th.framer-text {
       --framer-link-current-font-family,
       var(
         --framer-link-font-family,
-        var(--framer-font-family, Inter, Inter Placeholder, sans-serif)
+        var(--framer-font-family, "Eudoxus Sans", sans-serif)
       )
     )
   );
@@ -6138,10 +6138,10 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
 }
 .framer-rYYG2 .framer-styles-preset-35ylpl:not(.rich-text-wrapper),
 .framer-rYYG2 .framer-styles-preset-35ylpl.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 38px;
   --framer-font-style: normal;
@@ -6165,10 +6165,10 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
 }
 .framer-LH0ke .framer-styles-preset-4vuy4n:not(.rich-text-wrapper),
 .framer-LH0ke .framer-styles-preset-4vuy4n.rich-text-wrapper h2 {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 93px;
   --framer-font-style: normal;
@@ -6194,10 +6194,10 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-LH0ke .framer-styles-preset-4vuy4n:not(.rich-text-wrapper),
   .framer-LH0ke .framer-styles-preset-4vuy4n.rich-text-wrapper h2 {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 60px;
     --framer-font-style: normal;
@@ -6224,10 +6224,10 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
 @media (max-width: 809px) and (min-width: 0) {
   .framer-LH0ke .framer-styles-preset-4vuy4n:not(.rich-text-wrapper),
   .framer-LH0ke .framer-styles-preset-4vuy4n.rich-text-wrapper h2 {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 29px;
     --framer-font-style: normal;
@@ -6265,10 +6265,10 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
 }
 .framer-Ls8er .framer-styles-preset-1b3eonz:not(.rich-text-wrapper),
 .framer-Ls8er .framer-styles-preset-1b3eonz.rich-text-wrapper h4 {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", sans-serif;
-  --framer-font-family-bold-italic: "Inter", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 80px;
   --framer-font-style: normal;
@@ -12156,10 +12156,10 @@ html.lenis {
 }
 .framer-eTMx2 .framer-styles-preset-1qnjizk:not(.rich-text-wrapper),
 .framer-eTMx2 .framer-styles-preset-1qnjizk.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 18px;
   --framer-font-style: normal;
@@ -12185,10 +12185,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-eTMx2 .framer-styles-preset-1qnjizk:not(.rich-text-wrapper),
   .framer-eTMx2 .framer-styles-preset-1qnjizk.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 17px;
     --framer-font-style: normal;
@@ -12215,10 +12215,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-eTMx2 .framer-styles-preset-1qnjizk:not(.rich-text-wrapper),
   .framer-eTMx2 .framer-styles-preset-1qnjizk.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 16px;
     --framer-font-style: normal;
@@ -12244,10 +12244,10 @@ html.lenis {
 }
 .framer-QaenG .framer-styles-preset-1n1wh7h:not(.rich-text-wrapper),
 .framer-QaenG .framer-styles-preset-1n1wh7h.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 13px;
   --framer-font-style: normal;
@@ -12272,10 +12272,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-QaenG .framer-styles-preset-1n1wh7h:not(.rich-text-wrapper),
   .framer-QaenG .framer-styles-preset-1n1wh7h.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 16px;
     --framer-font-style: normal;
@@ -12301,10 +12301,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-QaenG .framer-styles-preset-1n1wh7h:not(.rich-text-wrapper),
   .framer-QaenG .framer-styles-preset-1n1wh7h.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 13px;
     --framer-font-style: normal;
@@ -12496,10 +12496,10 @@ html.lenis {
 }
 .framer-prBCU .framer-styles-preset-1oueo73:not(.rich-text-wrapper),
 .framer-prBCU .framer-styles-preset-1oueo73.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 22px;
   --framer-font-style: normal;
@@ -12524,10 +12524,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-prBCU .framer-styles-preset-1oueo73:not(.rich-text-wrapper),
   .framer-prBCU .framer-styles-preset-1oueo73.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 20px;
     --framer-font-style: normal;
@@ -12553,10 +12553,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-prBCU .framer-styles-preset-1oueo73:not(.rich-text-wrapper),
   .framer-prBCU .framer-styles-preset-1oueo73.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 19px;
     --framer-font-style: normal;
@@ -12754,10 +12754,10 @@ html.lenis {
 }
 .framer-Kqbr7 .framer-styles-preset-1hin0ji:not(.rich-text-wrapper),
 .framer-Kqbr7 .framer-styles-preset-1hin0ji.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 15px;
   --framer-font-style: normal;
@@ -12782,10 +12782,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-Kqbr7 .framer-styles-preset-1hin0ji:not(.rich-text-wrapper),
   .framer-Kqbr7 .framer-styles-preset-1hin0ji.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 23px;
     --framer-font-style: normal;
@@ -12811,10 +12811,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-Kqbr7 .framer-styles-preset-1hin0ji:not(.rich-text-wrapper),
   .framer-Kqbr7 .framer-styles-preset-1hin0ji.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 22px;
     --framer-font-style: normal;
@@ -12995,7 +12995,7 @@ html.lenis {
   --framer-input-focused-border-color: #ebebeb;
   --framer-input-focused-border-style: solid;
   --framer-input-focused-border-width: 1px;
-  --framer-input-font-family: "Inter";
+  --framer-input-font-family: "Eudoxus Sans";
   --framer-input-font-letter-spacing: -0.04em;
   --framer-input-font-line-height: 1.2em;
   --framer-input-font-size: 18px;
@@ -13385,10 +13385,10 @@ html.lenis {
 }
 .framer-Pv7XK .framer-styles-preset-hik9eh:not(.rich-text-wrapper),
 .framer-Pv7XK .framer-styles-preset-hik9eh.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 38px;
   --framer-font-style: normal;
@@ -13413,10 +13413,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-Pv7XK .framer-styles-preset-hik9eh:not(.rich-text-wrapper),
   .framer-Pv7XK .framer-styles-preset-hik9eh.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 30px;
     --framer-font-style: normal;
@@ -13442,10 +13442,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-Pv7XK .framer-styles-preset-hik9eh:not(.rich-text-wrapper),
   .framer-Pv7XK .framer-styles-preset-hik9eh.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 24px;
     --framer-font-style: normal;
@@ -13470,10 +13470,10 @@ html.lenis {
 }
 .framer-ofTFr .framer-styles-preset-2s58fc:not(.rich-text-wrapper),
 .framer-ofTFr .framer-styles-preset-2s58fc.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 12px;
   --framer-font-style: normal;
@@ -13498,10 +13498,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-ofTFr .framer-styles-preset-2s58fc:not(.rich-text-wrapper),
   .framer-ofTFr .framer-styles-preset-2s58fc.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 11px;
     --framer-font-style: normal;
@@ -13527,10 +13527,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-ofTFr .framer-styles-preset-2s58fc:not(.rich-text-wrapper),
   .framer-ofTFr .framer-styles-preset-2s58fc.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 11px;
     --framer-font-style: normal;
@@ -13569,10 +13569,10 @@ html.lenis {
 }
 .framer-WyC4r .framer-styles-preset-9v8dhs:not(.rich-text-wrapper),
 .framer-WyC4r .framer-styles-preset-9v8dhs.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
   --framer-font-size: 18px;
   --framer-font-style: normal;
@@ -13597,10 +13597,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-WyC4r .framer-styles-preset-9v8dhs:not(.rich-text-wrapper),
   .framer-WyC4r .framer-styles-preset-9v8dhs.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
     --framer-font-size: 15px;
     --framer-font-style: normal;
@@ -13626,10 +13626,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-WyC4r .framer-styles-preset-9v8dhs:not(.rich-text-wrapper),
   .framer-WyC4r .framer-styles-preset-9v8dhs.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
     --framer-font-size: 15px;
     --framer-font-style: normal;
@@ -13654,10 +13654,10 @@ html.lenis {
 }
 .framer-d3BN7 .framer-styles-preset-1mf8d9g:not(.rich-text-wrapper),
 .framer-d3BN7 .framer-styles-preset-1mf8d9g.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 16px;
   --framer-font-style: normal;
@@ -13683,10 +13683,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-d3BN7 .framer-styles-preset-1mf8d9g:not(.rich-text-wrapper),
   .framer-d3BN7 .framer-styles-preset-1mf8d9g.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 14px;
     --framer-font-style: normal;
@@ -13713,10 +13713,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-d3BN7 .framer-styles-preset-1mf8d9g:not(.rich-text-wrapper),
   .framer-d3BN7 .framer-styles-preset-1mf8d9g.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 12px;
     --framer-font-style: normal;
@@ -13756,10 +13756,10 @@ html.lenis {
 }
 .framer-1moT7 .framer-styles-preset-1yvd34u:not(.rich-text-wrapper),
 .framer-1moT7 .framer-styles-preset-1yvd34u.rich-text-wrapper h2 {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 144px;
   --framer-font-style: normal;
@@ -13784,10 +13784,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-1moT7 .framer-styles-preset-1yvd34u:not(.rich-text-wrapper),
   .framer-1moT7 .framer-styles-preset-1yvd34u.rich-text-wrapper h2 {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 99px;
     --framer-font-style: normal;
@@ -13813,10 +13813,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-1moT7 .framer-styles-preset-1yvd34u:not(.rich-text-wrapper),
   .framer-1moT7 .framer-styles-preset-1yvd34u.rich-text-wrapper h2 {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 60px;
     --framer-font-style: normal;
@@ -13841,10 +13841,10 @@ html.lenis {
 }
 .framer-Ieo2M .framer-styles-preset-1rii1wr:not(.rich-text-wrapper),
 .framer-Ieo2M .framer-styles-preset-1rii1wr.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 30px;
   --framer-font-style: normal;
@@ -13869,10 +13869,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-Ieo2M .framer-styles-preset-1rii1wr:not(.rich-text-wrapper),
   .framer-Ieo2M .framer-styles-preset-1rii1wr.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 28px;
     --framer-font-style: normal;
@@ -13898,10 +13898,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-Ieo2M .framer-styles-preset-1rii1wr:not(.rich-text-wrapper),
   .framer-Ieo2M .framer-styles-preset-1rii1wr.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 20px;
     --framer-font-style: normal;
@@ -13926,10 +13926,10 @@ html.lenis {
 }
 .framer-Zqalg .framer-styles-preset-txwsq6:not(.rich-text-wrapper),
 .framer-Zqalg .framer-styles-preset-txwsq6.rich-text-wrapper p {
-  --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-  --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+  --framer-font-family: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+  --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+  --framer-font-family-italic: "Eudoxus Sans", sans-serif;
   --framer-font-open-type-features: normal;
   --framer-font-size: 14px;
   --framer-font-style: normal;
@@ -13954,10 +13954,10 @@ html.lenis {
 @media (max-width: 1199px) and (min-width: 810px) {
   .framer-Zqalg .framer-styles-preset-txwsq6:not(.rich-text-wrapper),
   .framer-Zqalg .framer-styles-preset-txwsq6.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 13px;
     --framer-font-style: normal;
@@ -13983,10 +13983,10 @@ html.lenis {
 @media (max-width: 809px) and (min-width: 0) {
   .framer-Zqalg .framer-styles-preset-txwsq6:not(.rich-text-wrapper),
   .framer-Zqalg .framer-styles-preset-txwsq6.rich-text-wrapper p {
-    --framer-font-family: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-bold-italic: "Inter", "Inter Placeholder", sans-serif;
-    --framer-font-family-italic: "Inter", "Inter Placeholder", sans-serif;
+    --framer-font-family: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold: "Eudoxus Sans", sans-serif;
+    --framer-font-family-bold-italic: "Eudoxus Sans", sans-serif;
+    --framer-font-family-italic: "Eudoxus Sans", sans-serif;
     --framer-font-open-type-features: normal;
     --framer-font-size: 12px;
     --framer-font-style: normal;
@@ -14907,7 +14907,7 @@ html.lenis {
 }
 
 .lhHgoP {
-  font-family: Inter, "Inter Placeholder", sans-serif;
+  font-family: "Eudoxus Sans", sans-serif;
 }
 
 .lhHgoP {
@@ -14922,7 +14922,7 @@ html.lenis {
 }
 
 .repBa {
-  font-family: Inter, "Inter Placeholder", sans-serif;
+  font-family: "Eudoxus Sans", sans-serif;
 }
 
 .repBa {
@@ -14937,7 +14937,7 @@ html.lenis {
 }
 
 .icdrNa {
-  font-family: Inter, "Inter Placeholder", sans-serif;
+  font-family: "Eudoxus Sans", sans-serif;
 }
 
 .icdrNa {
@@ -14953,7 +14953,7 @@ html.lenis {
 }
 
 .dYLZvg {
-  font-family: Inter, "Inter Placeholder", sans-serif;
+  font-family: "Eudoxus Sans", sans-serif;
 }
 
 .dYLZvg {

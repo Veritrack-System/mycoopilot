@@ -9,6 +9,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Eudoxus Sans";
+  src: url("/fonts/eudoxus-sans-variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -180,7 +188,7 @@
    utilities (bg-<name>, text-<name>, font-<name>). var() values live in
    the imported stylesheet's :root. */
 @theme inline {
-  --font-sans: sans-serif;
+  --font-sans: "Eudoxus Sans", sans-serif;
   --color-site-import-background: var(--site-import-background);
   --color-site-import-foreground: var(--site-import-foreground);
   --color-site-import-primary: var(--site-import-primary);
@@ -237,7 +245,7 @@ header[data-menu-open] .framer-1rfamfy {
   border-radius: 999px;
   background: #315eeb;
   color: #fff;
-  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-family: "Eudoxus Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.04em;
