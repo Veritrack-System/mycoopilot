@@ -35,6 +35,83 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function ArrivalCurtain() {
+  const [gone, setGone] = useState(false);
+  useEffect(() => {
+    const curtain = document.querySelector(".coopilot-curtain");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !curtain) {
+      setGone(true);
+      return;
+    }
+    const finish = (event?: Event) => {
+      if (event && event.target !== curtain) return;
+      setGone(true);
+    };
+    const running = curtain.getAnimations?.() ?? [];
+    if (running.length > 0 && running.every((animation) => animation.playState === "finished")) {
+      finish();
+      return;
+    }
+    curtain.addEventListener("animationend", finish);
+    const timer = window.setTimeout(finish, 1700);
+    return () => {
+      curtain.removeEventListener("animationend", finish);
+      window.clearTimeout(timer);
+    };
+  }, []);
+  if (gone) return null;
+  return (
+    <div className="coopilot-curtain" aria-hidden="true">
+      <style>{`
+        .coopilot-curtain {
+          position: fixed;
+          inset: 0;
+          z-index: 80;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #14253d;
+          animation: coopilot-curtain-up 780ms cubic-bezier(0.76, 0, 0.24, 1) 560ms forwards;
+        }
+        .coopilot-curtain-mark {
+          perspective: 800px;
+        }
+        .coopilot-curtain img {
+          display: block;
+          width: 136px;
+          height: 136px;
+          transform-origin: center center;
+          animation: coopilot-mark-settle 640ms cubic-bezier(0.76, 0, 0.24, 1) both;
+        }
+        @keyframes coopilot-mark-settle {
+          from { transform: rotateX(14deg) rotateY(-18deg) scale(0.9); }
+          to { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+        }
+        html:has(.coopilot-curtain),
+        html:has(.coopilot-curtain) body {
+          overflow: hidden;
+        }
+        @keyframes coopilot-curtain-up {
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(0, -100%, 0); }
+        }
+        @media (max-width: 767px) {
+          .coopilot-curtain img { width: 108px; height: 108px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .coopilot-curtain { display: none !important; animation: none; }
+          html:has(.coopilot-curtain),
+          html:has(.coopilot-curtain) body { overflow: auto; }
+        }
+      `}</style>
+      <div className="coopilot-curtain-mark">
+        <img src="/brand/coopilot-mark-light.png" alt="" />
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   const menu = useImportedMenu();
   const importedViewportWidth = useSyncExternalStore(
@@ -64,6 +141,7 @@ function Index() {
           outline: none;
         }
       `}</style>
+      <ArrivalCurtain />
       <div id="main">
         <div
           className="framer-LIPxQ framer-Zqalg framer-d3BN7 framer-EP1im framer-128kipa items-center flex-col flex-nowrap content-center justify-start [gap:0] [overflow:hidden]"
@@ -136,7 +214,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -169,7 +247,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -216,7 +294,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -249,7 +327,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -296,7 +374,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -329,7 +407,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -376,7 +454,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -409,7 +487,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -452,7 +530,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -484,7 +562,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "60px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.06em",
@@ -733,7 +811,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "10px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.04em",
@@ -846,7 +924,7 @@ function Index() {
                                 style={
                                   {
                                     "--framer-font-family":
-                                      '"Inter", "Inter Placeholder", sans-serif',
+                                      '"Eudoxus Sans", sans-serif',
                                     "--framer-font-size": "10px",
                                     "--framer-font-weight": "600",
                                     "--framer-letter-spacing": "-0.04em",
@@ -958,7 +1036,7 @@ function Index() {
                                 style={
                                   {
                                     "--framer-font-family":
-                                      '"Inter", "Inter Placeholder", sans-serif',
+                                      '"Eudoxus Sans", sans-serif',
                                     "--framer-font-size": "10px",
                                     "--framer-font-weight": "600",
                                     "--framer-letter-spacing": "-0.04em",
@@ -1070,7 +1148,7 @@ function Index() {
                               style={
                                 {
                                   "--framer-font-family":
-                                    '"Inter", "Inter Placeholder", sans-serif',
+                                    '"Eudoxus Sans", sans-serif',
                                   "--framer-font-size": "10px",
                                   "--framer-font-weight": "600",
                                   "--framer-letter-spacing": "-0.04em",
@@ -2048,7 +2126,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
                   "--framer-line-height": "110%",
@@ -2075,7 +2153,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-size": "9px",
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
@@ -2109,7 +2187,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
                   "--framer-line-height": "110%",
@@ -2136,7 +2214,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-size": "9px",
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
@@ -2170,7 +2248,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
                   "--framer-line-height": "110%",
@@ -2197,7 +2275,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-size": "9px",
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
@@ -2231,7 +2309,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
                   "--framer-line-height": "110%",
@@ -2266,7 +2344,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
                   "--framer-line-height": "110%",
@@ -2321,7 +2399,7 @@ function ImportedNavTop({ menu }: { menu: ImportedMenu }) {
           border-radius: 999px;
           background: #315eeb;
           color: #fff;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: -0.04em;
@@ -2504,7 +2582,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2546,7 +2624,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2588,7 +2666,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2630,7 +2708,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2672,7 +2750,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2703,7 +2781,7 @@ function ImportedHeaderPhone({ menu }: { menu: ImportedMenu }) {
                     className="framer-text"
                     style={
                       {
-                        "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                        "--framer-font-family": '"Eudoxus Sans", sans-serif',
                         "--framer-font-size": "32px",
                         "--framer-font-weight": "600",
                         "--framer-letter-spacing": "-0.06em",
@@ -2761,7 +2839,7 @@ function ImportedSectionHero() {
         }
         .coopilot-hero-copy p { margin: 0; }
         .coopilot-hero-eyebrow {
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: -0.03em;
@@ -2770,7 +2848,7 @@ function ImportedSectionHero() {
         }
         .coopilot-hero-copy h1 {
           margin: 18px 0 0;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: clamp(32px, 4.2vw, 56px);
           font-weight: 600;
           letter-spacing: -0.055em;
@@ -2784,7 +2862,7 @@ function ImportedSectionHero() {
         .coopilot-hero-intro {
           margin-top: 22px !important;
           max-width: 62ch;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 17px;
           font-weight: 500;
           letter-spacing: -0.03em;
@@ -2801,7 +2879,7 @@ function ImportedSectionHero() {
           border-radius: 999px;
           background: #f5f5f5;
           color: #14253d;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 15px;
           font-weight: 600;
           letter-spacing: -0.03em;
@@ -2816,7 +2894,7 @@ function ImportedSectionHero() {
         .coopilot-hero-note {
           margin-top: 16px !important;
           max-width: 46ch;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 14px;
           font-weight: 500;
           letter-spacing: -0.02em;
@@ -2832,7 +2910,7 @@ function ImportedSectionHero() {
         }
         .coopilot-kicker {
           margin: 0 0 16px;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: -0.04em;
@@ -2853,7 +2931,7 @@ function ImportedSectionHero() {
           align-self: center;
           width: min(720px, calc(100% - 40px));
           margin: 0 0 -69px;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 15px;
           font-weight: 500;
           letter-spacing: -0.03em;
@@ -3256,7 +3334,7 @@ function ImportedDivMobileNew() {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-size": "10px",
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
@@ -3356,7 +3434,7 @@ function ImportedDivMobileNew() {
                 className="framer-text"
                 style={
                   {
-                    "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                    "--framer-font-family": '"Eudoxus Sans", sans-serif',
                     "--framer-font-size": "10px",
                     "--framer-font-weight": "600",
                     "--framer-letter-spacing": "-0.04em",
@@ -3462,7 +3540,7 @@ function ImportedDivMobileNew() {
                 className="framer-text"
                 style={
                   {
-                    "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                    "--framer-font-family": '"Eudoxus Sans", sans-serif',
                     "--framer-font-size": "10px",
                     "--framer-font-weight": "600",
                     "--framer-letter-spacing": "-0.04em",
@@ -3575,7 +3653,7 @@ function ImportedDivMobileNew() {
               className="framer-text"
               style={
                 {
-                  "--framer-font-family": '"Inter", "Inter Placeholder", sans-serif',
+                  "--framer-font-family": '"Eudoxus Sans", sans-serif',
                   "--framer-font-size": "10px",
                   "--framer-font-weight": "600",
                   "--framer-letter-spacing": "-0.04em",
@@ -3796,7 +3874,7 @@ function WhoItsFor() {
         }
         .coopilot-fit h3 {
           margin: 0 0 10px;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: -0.04em;
@@ -3805,7 +3883,7 @@ function WhoItsFor() {
         }
         .coopilot-fit p {
           margin: 0;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 15px;
           font-weight: 500;
           letter-spacing: -0.03em;
@@ -3885,7 +3963,7 @@ function WhatWeFix() {
   ];
   const heading: CSSProperties = {
     margin: 0,
-    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+    fontFamily: '"Eudoxus Sans", sans-serif',
     fontSize: "clamp(29px, 3vw, 38px)",
     fontWeight: 600,
     letterSpacing: "-0.05em",
@@ -3907,7 +3985,7 @@ function WhatWeFix() {
         <p
           style={{
             margin: "0 0 16px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "13px",
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -3926,7 +4004,7 @@ function WhatWeFix() {
           style={{
             margin: "18px 0 0",
             maxWidth: "640px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "18px",
             fontWeight: 500,
             letterSpacing: "-0.04em",
@@ -3952,7 +4030,7 @@ function WhatWeFix() {
               <p
                 style={{
                   margin: 0,
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "14px",
                   fontWeight: 600,
                   letterSpacing: "-0.04em",
@@ -3966,7 +4044,7 @@ function WhatWeFix() {
                 <h3
                   style={{
                     margin: 0,
-                    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                    fontFamily: '"Eudoxus Sans", sans-serif',
                     fontSize: "20px",
                     fontWeight: 600,
                     letterSpacing: "-0.04em",
@@ -3979,7 +4057,7 @@ function WhatWeFix() {
                 <p
                   style={{
                     margin: "8px 0 0",
-                    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                    fontFamily: '"Eudoxus Sans", sans-serif',
                     fontSize: "16px",
                     fontWeight: 500,
                     letterSpacing: "-0.03em",
@@ -4031,7 +4109,7 @@ function WaysToWork() {
   ];
   const heading: CSSProperties = {
     margin: 0,
-    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+    fontFamily: '"Eudoxus Sans", sans-serif',
     fontSize: "clamp(29px, 3vw, 38px)",
     fontWeight: 600,
     letterSpacing: "-0.05em",
@@ -4076,7 +4154,7 @@ function WaysToWork() {
         <p
           style={{
             margin: "0 0 16px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "13px",
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -4097,7 +4175,7 @@ function WaysToWork() {
           style={{
             margin: "18px 0 0",
             maxWidth: "720px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "18px",
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -4127,7 +4205,7 @@ function WaysToWork() {
               <p
                 style={{
                   margin: 0,
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "13px",
                   fontWeight: 600,
                   letterSpacing: "-0.04em",
@@ -4143,7 +4221,7 @@ function WaysToWork() {
               <h3
                 style={{
                   margin: "12px 0 0",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "22px",
                   fontWeight: 600,
                   letterSpacing: "-0.04em",
@@ -4156,7 +4234,7 @@ function WaysToWork() {
               <p
                 style={{
                   margin: "12px 0 0",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "16px",
                   fontWeight: 500,
                   letterSpacing: "-0.03em",
@@ -4171,7 +4249,7 @@ function WaysToWork() {
                   margin: "16px 0 0",
                   marginTop: "auto",
                   paddingTop: "16px",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "15px",
                   fontWeight: 500,
                   letterSpacing: "-0.03em",
@@ -4187,7 +4265,7 @@ function WaysToWork() {
                 style={{
                   marginTop: "0",
                   paddingTop: "18px",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "15px",
                   fontWeight: 600,
                   letterSpacing: "-0.04em",
@@ -4235,7 +4313,7 @@ function StickyBooking() {
           border-radius: 999px;
           background: #315EEB;
           color: #fff;
-          font-family: "Inter", "Inter Placeholder", sans-serif;
+          font-family: "Eudoxus Sans", sans-serif;
           font-size: 13px;
           font-weight: 600;
           letter-spacing: -0.04em;
@@ -4336,7 +4414,7 @@ function FinalClose() {
         <h2
           style={{
             margin: 0,
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "clamp(29px, 3vw, 38px)",
             fontWeight: 600,
             letterSpacing: "-0.05em",
@@ -4350,7 +4428,7 @@ function FinalClose() {
           style={{
             margin: "18px 0 0",
             maxWidth: "640px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "17px",
             fontWeight: 500,
             letterSpacing: "-0.03em",
@@ -4373,7 +4451,7 @@ function FinalClose() {
             borderRadius: "999px",
             backgroundColor: paper,
             color: navy,
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "15px",
             fontWeight: 600,
             letterSpacing: "-0.03em",
@@ -4408,7 +4486,7 @@ function FinalClose() {
           <p
             style={{
               margin: 0,
-              fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+              fontFamily: '"Eudoxus Sans", sans-serif',
               fontSize: "14px",
               fontWeight: 500,
               letterSpacing: "-0.03em",
@@ -4423,7 +4501,7 @@ function FinalClose() {
           <p
             style={{
               margin: 0,
-              fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+              fontFamily: '"Eudoxus Sans", sans-serif',
               fontSize: "14px",
               fontWeight: 600,
               letterSpacing: "-0.03em",
@@ -4457,7 +4535,7 @@ function FounderAndTeam() {
   ];
   const heading: CSSProperties = {
     margin: 0,
-    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+    fontFamily: '"Eudoxus Sans", sans-serif',
     fontSize: "clamp(29px, 3vw, 38px)",
     fontWeight: 600,
     letterSpacing: "-0.05em",
@@ -4466,7 +4544,7 @@ function FounderAndTeam() {
   };
   const body: CSSProperties = {
     margin: "16px 0 0",
-    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+    fontFamily: '"Eudoxus Sans", sans-serif',
     fontSize: "17px",
     fontWeight: 500,
     letterSpacing: "-0.03em",
@@ -4494,7 +4572,7 @@ function FounderAndTeam() {
       <p
         style={{
           margin: "0 0 16px",
-          fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+          fontFamily: '"Eudoxus Sans", sans-serif',
           fontSize: "13px",
           fontWeight: 600,
           letterSpacing: "-0.04em",
@@ -4513,7 +4591,7 @@ function FounderAndTeam() {
       <p
         style={{
           margin: "32px 0 0",
-          fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+          fontFamily: '"Eudoxus Sans", sans-serif',
           fontSize: "13px",
           fontWeight: 600,
           letterSpacing: "-0.04em",
@@ -4526,7 +4604,7 @@ function FounderAndTeam() {
       <p
         style={{
           margin: "8px 0 0",
-          fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+          fontFamily: '"Eudoxus Sans", sans-serif',
           fontSize: "16px",
           fontWeight: 600,
           letterSpacing: "-0.03em",
@@ -4541,7 +4619,7 @@ function FounderAndTeam() {
         <p
           style={{
             margin: 0,
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "13px",
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -4554,7 +4632,7 @@ function FounderAndTeam() {
         <p
           style={{
             margin: "10px 0 0",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "16px",
             fontWeight: 600,
             letterSpacing: "-0.03em",
@@ -4664,7 +4742,7 @@ function Faq() {
       <p
         style={{
           margin: "0 0 20px",
-          fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+          fontFamily: '"Eudoxus Sans", sans-serif',
           fontSize: "13px",
           fontWeight: 600,
           letterSpacing: "-0.04em",
@@ -4709,7 +4787,7 @@ function Faq() {
                     background: "transparent",
                     cursor: "pointer",
                     textAlign: "left",
-                    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                    fontFamily: '"Eudoxus Sans", sans-serif',
                     fontSize: "17px",
                     fontWeight: 600,
                     letterSpacing: "-0.03em",
@@ -4730,7 +4808,7 @@ function Faq() {
                   style={{
                     margin: 0,
                     padding: "0 22px 22px",
-                    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                    fontFamily: '"Eudoxus Sans", sans-serif',
                     fontSize: "16px",
                     fontWeight: 500,
                     letterSpacing: "-0.03em",
@@ -4788,7 +4866,7 @@ function Proof() {
   ];
   const heading: CSSProperties = {
     margin: 0,
-    fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+    fontFamily: '"Eudoxus Sans", sans-serif',
     fontSize: "clamp(29px, 3vw, 38px)",
     fontWeight: 600,
     letterSpacing: "-0.05em",
@@ -4817,7 +4895,7 @@ function Proof() {
         <p
           style={{
             margin: "0 0 16px",
-            fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+            fontFamily: '"Eudoxus Sans", sans-serif',
             fontSize: "13px",
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -4840,7 +4918,7 @@ function Proof() {
               <p
                 style={{
                   margin: 0,
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "13px",
                   fontWeight: 600,
                   letterSpacing: "-0.04em",
@@ -4853,7 +4931,7 @@ function Proof() {
               <h3
                 style={{
                   margin: "12px 0 0",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "clamp(22px, 2.4vw, 28px)",
                   fontWeight: 600,
                   letterSpacing: "-0.045em",
@@ -4866,7 +4944,7 @@ function Proof() {
               <p
                 style={{
                   margin: "10px 0 0",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "15px",
                   fontWeight: 600,
                   letterSpacing: "-0.03em",
@@ -4879,7 +4957,7 @@ function Proof() {
               <p
                 style={{
                   margin: "14px 0 0",
-                  fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                  fontFamily: '"Eudoxus Sans", sans-serif',
                   fontSize: "16px",
                   fontWeight: 500,
                   letterSpacing: "-0.03em",
@@ -4906,7 +4984,7 @@ function Proof() {
               style={{
                 display: "block",
                 marginBottom: "8px",
-                fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                fontFamily: '"Eudoxus Sans", sans-serif',
                 fontSize: "13px",
                 fontWeight: 600,
                 letterSpacing: "-0.04em",
@@ -4918,7 +4996,7 @@ function Proof() {
             </span>
             <span
               style={{
-                fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                fontFamily: '"Eudoxus Sans", sans-serif',
                 fontSize: "16px",
                 fontWeight: 500,
                 letterSpacing: "-0.03em",
@@ -4937,7 +5015,7 @@ function Proof() {
               style={{
                 display: "block",
                 marginBottom: "8px",
-                fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                fontFamily: '"Eudoxus Sans", sans-serif',
                 fontSize: "13px",
                 fontWeight: 600,
                 letterSpacing: "-0.04em",
@@ -4949,7 +5027,7 @@ function Proof() {
             </span>
             <span
               style={{
-                fontFamily: '"Inter", "Inter Placeholder", sans-serif',
+                fontFamily: '"Eudoxus Sans", sans-serif',
                 fontSize: "16px",
                 fontWeight: 500,
                 letterSpacing: "-0.03em",
