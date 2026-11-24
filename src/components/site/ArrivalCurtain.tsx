@@ -40,8 +40,8 @@ export function ArrivalCurtain() {
           background-color: var(--cp-indigo);
           background-image: radial-gradient(
             60% 70% at 85% 30%,
-            rgb(90 27 226 / 0.45) 0%,
-            rgb(90 27 226 / 0) 70%
+            rgb(var(--cp-glow) / 0.45) 0%,
+            rgb(var(--cp-glow) / 0) 70%
           );
           animation: coopilot-curtain-up 780ms cubic-bezier(0.76, 0, 0.24, 1) 560ms forwards;
         }

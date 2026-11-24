@@ -5,7 +5,7 @@
  */
 
 :root {
-  --cp-rule: rgb(20 1 73 / 0.12);
+  --cp-rule: rgb(17 19 24 / 0.12);
   --cp-section-y: clamp(4.5rem, 2.75rem + 6vw, 8rem);
   --cp-card-radius: 1.25rem;
   --cp-h3: clamp(1.25rem, 1.05rem + 0.7vw, 1.625rem);
@@ -378,7 +378,7 @@ body {
   background: var(--cp-white);
   box-shadow:
     inset 0 0 0 1.5px var(--cp-violet),
-    0 18px 40px -24px rgb(90 27 226 / 0.45);
+    0 18px 40px -24px rgb(var(--cp-glow) / 0.45);
 }
 .cp-offer__top {
   display: flex;
@@ -597,7 +597,7 @@ body {
 }
 .cp-path__step--now::before {
   background: var(--cp-violet);
-  box-shadow: 0 0 0 4px rgb(90 27 226 / 0.15);
+  box-shadow: 0 0 0 4px rgb(var(--cp-glow) / 0.15);
 }
 
 .cp-founder__para {
@@ -729,7 +729,11 @@ body {
   color: var(--cp-on-dark);
 }
 .cp-close__glow {
-  background: radial-gradient(55% 60% at 15% 20%, rgb(90 27 226 / 0.4) 0%, rgb(90 27 226 / 0) 70%);
+  background: radial-gradient(
+    55% 60% at 15% 20%,
+    rgb(var(--cp-glow) / 0.4) 0%,
+    rgb(var(--cp-glow) / 0) 70%
+  );
 }
 .cp-close__cta {
   padding-top: clamp(5rem, 3rem + 7vw, 9rem);
@@ -885,7 +889,7 @@ body {
   pointer-events: auto;
 }
 .cp-sticky__btn {
-  box-shadow: 0 12px 32px -12px rgb(20 1 73 / 0.55);
+  box-shadow: 0 12px 32px -12px rgb(17 19 24 / 0.45);
 }
 @media (max-width: 639.98px) {
   .cp-sticky {
@@ -893,7 +897,7 @@ body {
     right: 0;
     bottom: 0;
     padding: 0.75rem var(--cp-gutter) calc(0.75rem + env(safe-area-inset-bottom));
-    background: rgb(247 246 251 / 0.96);
+    background: var(--cp-paper-glass);
     box-shadow: inset 0 1px 0 var(--cp-mist);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

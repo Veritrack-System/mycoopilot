@@ -20,6 +20,8 @@ export const NAV_ITEMS = [
 export const LOGO = {
   onLight: "/brand/coopilot-logo-horizontal.png",
   onDark: "/brand/coopilot-logo-horizontal-light.png",
+  // Starter-palette preview only (?palette=starter): official logo recoloured to Signal blue #315EEB.
+  onLightStarter: "/brand/coopilot-logo-horizontal-blue.png",
   alt: "CooPilot",
 } as const;
 

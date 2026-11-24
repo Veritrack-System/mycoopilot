@@ -109,6 +109,13 @@ export function SiteHeader() {
           >
             <img className="cp-logo--dark" src={LOGO.onDark} alt="" width={475} height={128} />
             <img className="cp-logo--light" src={LOGO.onLight} alt="" width={475} height={128} />
+            <img
+              className="cp-logo--light cp-logo--starter"
+              src={LOGO.onLightStarter}
+              alt=""
+              width={475}
+              height={128}
+            />
           </a>
 
           <nav className="cp-nav" aria-label="Primary">

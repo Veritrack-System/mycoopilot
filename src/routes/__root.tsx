@@ -129,7 +129,8 @@ function RootShell({ children }: { children: ReactNode }) {
     select: (matches) => matches.at(-1)?.staticData.importedDocument,
   });
   return (
-    <html lang="en" {...importedDocument?.html}>
+    // suppressHydrationWarning: a pre-paint script may set data-palette on <html> (review preview).
+    <html lang="en" suppressHydrationWarning {...importedDocument?.html}>
       <head>
         <style href="site-import-inline" precedence="imported-inline">
           {"@layer imported-inline;"}

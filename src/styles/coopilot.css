@@ -7,21 +7,27 @@
 
 :root {
   /* Colour */
+  /* Handoff "starter brand system", kept exactly: Ink, Paper, Mist. */
+  --cp-ink: #111318; /* Ink: headings + text on light */
+  --cp-ink-soft: rgb(17 19 24 / 0.74); /* secondary text on light (AA on paper) */
+  --cp-paper: #f5f3ee; /* Paper: main light surface */
+  --cp-mist: #dde3ec; /* Mist: rules, cards, supporting detail */
+  /* The two handoff hues tuned to the supplied logo:
+     Navy -> logo Indigo (dark surfaces), Signal blue -> logo Violet (the one accent). */
   --cp-indigo: #140149; /* dark surfaces: hero, proof, footer (logo wordmark ink) */
   --cp-indigo-2: #1d0866; /* raised surface on indigo */
-  --cp-ink: #140149; /* headings + text on light */
-  --cp-ink-soft: rgb(20 1 73 / 0.74); /* secondary text on light (AA on paper) */
   --cp-violet: #5a1be2; /* the one accent: CTA on light, focus, active node */
   --cp-violet-hover: #4a12c4;
   --cp-iris: #7a5bf7; /* signal lines on dark */
   --cp-lavender: #c2b0f2; /* emphasis text on dark */
-  --cp-mist: #e6e1f7; /* rules, borders on light */
-  --cp-paper: #f7f6fb; /* light surfaces */
+  --cp-glow: 90 27 226; /* accent glow (RGB channels) */
+  --cp-glow-2: 122 91 247;
   --cp-white: #ffffff;
   --cp-on-dark: #ffffff;
   --cp-on-dark-soft: rgb(255 255 255 / 0.8);
   --cp-on-dark-muted: rgb(255 255 255 / 0.68);
   --cp-rule-dark: rgb(194 176 242 / 0.22);
+  --cp-paper-glass: rgb(245 243 238 / 0.96);
 
   /* Type */
   --cp-font: "Eudoxus Sans", ui-sans-serif, system-ui, sans-serif;
@@ -51,6 +57,20 @@
   :root {
     --cp-header-h: 4.5rem; /* 72 */
   }
+}
+
+/* Review preview of the handoff's unmodified starter palette (Navy + Signal blue).
+   Open the site with ?palette=starter to see it. Neutrals are already the handoff values. */
+:root[data-palette="starter"] {
+  --cp-indigo: #14253d;
+  --cp-indigo-2: #1c3252;
+  --cp-violet: #315eeb;
+  --cp-violet-hover: #274ed0;
+  --cp-iris: #5b80f2;
+  --cp-lavender: #aebff5;
+  --cp-glow: 49 94 235;
+  --cp-glow-2: 91 128 242;
+  --cp-rule-dark: rgb(174 191 245 / 0.22);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -232,6 +252,14 @@
 }
 .cp-header[data-state="solid"]:not([data-open]) .cp-logo--dark {
   opacity: 0;
+}
+/* Light-header logo follows the palette: violet by default, Signal blue in the starter preview. */
+.cp-header__logo .cp-logo--starter,
+:root[data-palette="starter"] .cp-header__logo .cp-logo--light:not(.cp-logo--starter) {
+  display: none;
+}
+:root[data-palette="starter"] .cp-header__logo .cp-logo--starter {
+  display: block;
 }
 .cp-header__logo:focus-visible {
   outline: 2px solid currentColor;
@@ -468,8 +496,12 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60% 70% at 85% 30%, rgb(90 27 226 / 0.45) 0%, rgb(90 27 226 / 0) 70%),
-    radial-gradient(40% 50% at 100% 100%, rgb(122 91 247 / 0.18) 0%, rgb(122 91 247 / 0) 70%);
+    radial-gradient(60% 70% at 85% 30%, rgb(var(--cp-glow) / 0.45) 0%, rgb(var(--cp-glow) / 0) 70%),
+    radial-gradient(
+      40% 50% at 100% 100%,
+      rgb(var(--cp-glow-2) / 0.18) 0%,
+      rgb(var(--cp-glow-2) / 0) 70%
+    );
 }
 
 .cp-hero__grid {
@@ -644,7 +676,7 @@
   stroke: var(--cp-lavender);
 }
 .cp-signal__node--end circle.cp-signal__halo {
-  fill: rgb(122 91 247 / 0.18);
+  fill: rgb(var(--cp-glow-2) / 0.18);
   stroke: none;
 }
 .cp-signal__label {

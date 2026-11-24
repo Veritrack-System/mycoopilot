@@ -34,6 +34,14 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "/brand/coopilot-og.png" },
     ],
+    scripts: [
+      {
+        // Review-only: ?palette=starter previews the handoff's original Navy + Signal blue.
+        // Runs before paint so the page never flashes the default palette first.
+        children:
+          "try{if(new URLSearchParams(location.search).get('palette')==='starter')document.documentElement.setAttribute('data-palette','starter')}catch(e){}",
+      },
+    ],
   }),
   component: Index,
 });
