@@ -31,6 +31,7 @@ export const CONTACT = {
   privacyHref: null as string | null,
   cookieHref: null as string | null,
   legalName: "COOPILOT LTD",
+  registration: null as string | null,
 } as const;
 
 export const CREDENTIALS = [

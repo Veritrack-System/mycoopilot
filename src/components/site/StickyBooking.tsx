@@ -14,7 +14,8 @@ export function StickyBooking() {
 
   useEffect(() => {
     const heroCta = document.querySelector(".cp-hero .cp-btn");
-    const close = document.getElementById("book");
+    // The whole closing block (final CTA + footer), so the bar never sits over the footer.
+    const close = document.querySelector(".cp-close");
     const observers: IntersectionObserver[] = [];
     if (heroCta) {
       const o = new IntersectionObserver(([entry]) => {

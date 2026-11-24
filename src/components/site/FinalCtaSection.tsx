@@ -71,9 +71,12 @@ function SiteFooter() {
         ) : null}
 
         <div className="cp-footer__bottom">
-          <p className="cp-footer__legal">
-            {CONTACT.legalName} | © 2026 {CONTACT.legalName}
-          </p>
+          <div className="cp-footer__legal">
+            <p>
+              © {new Date().getFullYear()} {CONTACT.legalName}
+            </p>
+            {CONTACT.registration ? <p>{CONTACT.registration}</p> : null}
+          </div>
           {legalLinks.length > 0 ? (
             <ul className="cp-footer__links">
               {legalLinks.map((link) => (
