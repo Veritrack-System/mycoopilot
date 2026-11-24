@@ -9,6 +9,7 @@
 @source "../src";
 @import "tw-animate-css";
 @import "./styles/coopilot.css";
+@import "./styles/sections.css";
 
 @font-face {
   font-family: "Eudoxus Sans";
