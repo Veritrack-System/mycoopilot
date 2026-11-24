@@ -4062,12 +4062,6 @@ NavigationContainer [data-framer-component-type="NavigationContainer"] > *,
   position: relative;
 }
 
-@media (min-width: 1200px) {
-  #problem {
-    transform: translateY(-150px) scale(0.95) !important;
-  }
-}
-
 .framer-Uqv4b .framer-1tc7eep {
   width: 100%;
   height: min-content;
