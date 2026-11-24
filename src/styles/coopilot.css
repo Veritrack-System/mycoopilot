@@ -177,11 +177,11 @@
     box-shadow var(--cp-dur-fast) var(--cp-ease),
     color var(--cp-dur-fast) var(--cp-ease);
 }
+/* Solid indigo once the page moves: same colour as the hero, so it reads as one surface
+   and nothing scrolling underneath can show through behind the logo. */
 .cp-header[data-state="veil"] {
-  background: rgb(20 1 73 / 0.92);
+  background: var(--cp-indigo);
   box-shadow: inset 0 -1px 0 var(--cp-rule-dark);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 .cp-header[data-state="solid"] {
   color: var(--cp-ink);
@@ -427,7 +427,7 @@
     visibility: hidden;
   }
 }
-@media (max-width: 359px) {
+@media (max-width: 339.98px) {
   .cp-header__cta {
     display: none;
   }
@@ -551,6 +551,35 @@
 
 .cp-hero__visual {
   min-width: 0;
+}
+
+/* Phones: a tighter vertical rhythm and a full-width, thumb-sized booking button. */
+@media (max-width: 479.98px) {
+  .cp-hero__grid {
+    gap: 2.25rem;
+    padding-bottom: 2.75rem;
+  }
+  .cp-hero__title {
+    margin-top: 1rem;
+  }
+  .cp-hero__intro {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .cp-hero__action {
+    margin-top: 1.75rem;
+    gap: 0.875rem;
+  }
+  .cp-hero__action .cp-btn {
+    width: 100%;
+  }
+  .cp-hero__note {
+    max-width: none;
+  }
+  .cp-hero__qualifier {
+    margin-top: 1.5rem;
+  }
 }
 
 /* One-time entrance. Content is fully visible when motion is reduced or CSS animation is absent. */
