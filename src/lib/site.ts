@@ -23,6 +23,16 @@ export const LOGO = {
   alt: "CooPilot",
 } as const;
 
+// Footer contact + legal. Leave as null until the client supplies the real value:
+// nothing renders for a null entry, so no placeholder text or dead link ships.
+export const CONTACT = {
+  email: null as string | null,
+  linkedin: null as string | null,
+  privacyHref: null as string | null,
+  cookieHref: null as string | null,
+  legalName: "COOPILOT LTD",
+} as const;
+
 export const CREDENTIALS = [
   "JPMorgan",
   "IAG Cargo",
