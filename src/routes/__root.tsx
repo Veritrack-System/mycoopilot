@@ -82,13 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CooPilot | Fractional COO for Founder-Led Businesses" },
+      { title: "COOPilot | Fractional COO for Founder-Led Businesses" },
       {
         name: "description",
         content:
-          "CooPilot helps founder-led businesses fix reporting, ownership, finance operations and delivery, so the company can run without everything going through the founder.",
+          "COOPilot helps founder-led businesses fix reporting, ownership, finance operations and delivery, so the company can run without everything going through the founder.",
       },
-      { name: "author", content: "CooPilot" },
+      { name: "author", content: "COOPilot" },
       {
         property: "og:title",
         content: "Your business runs on you. That is the problem we fix.",
@@ -106,7 +106,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+      { rel: "icon", href: "/brand/coopilot-mark-blue.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -129,8 +131,7 @@ function RootShell({ children }: { children: ReactNode }) {
     select: (matches) => matches.at(-1)?.staticData.importedDocument,
   });
   return (
-    // suppressHydrationWarning: a pre-paint script may set data-palette on <html> (review preview).
-    <html lang="en" suppressHydrationWarning {...importedDocument?.html}>
+    <html lang="en" {...importedDocument?.html}>
       <head>
         <style href="site-import-inline" precedence="imported-inline">
           {"@layer imported-inline;"}
