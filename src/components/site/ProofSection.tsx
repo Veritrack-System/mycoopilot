@@ -1,14 +1,16 @@
 import { proof } from "@/content/home";
 import { SectionHeading } from "./SectionHeading";
+import { Testimonials } from "./Testimonials";
 
 /**
- * Section 05: editorial case blocks on the indigo surface. The outcome is always visible.
+ * Section 05: editorial case blocks on the navy surface. The outcome is always visible.
  * Only cases marked `published` render (see the publication gate in content/home.ts).
+ * Credentials live in the trust strip only; Proof keeps the Clients row (client review).
  */
 export function ProofSection() {
   const cases = proof.cases.filter((item) => item.published);
   return (
-    <section id="proof" className="cp-section cp-section--indigo" aria-labelledby="proof-title">
+    <section id="proof" className="cp-section cp-section--navy" aria-labelledby="proof-title">
       <div className="cp-container">
         <SectionHeading
           id="proof-title"
@@ -38,22 +40,14 @@ export function ProofSection() {
           ))}
         </div>
 
+        <Testimonials />
+
         <dl className="cp-names" data-reveal="">
           <div className="cp-names__row">
             <dt>Clients</dt>
             <dd>
               <ul>
                 {proof.clients.map((name) => (
-                  <li key={name}>{name}</li>
-                ))}
-              </ul>
-            </dd>
-          </div>
-          <div className="cp-names__row">
-            <dt>Experience</dt>
-            <dd>
-              <ul>
-                {proof.credentials.map((name) => (
                   <li key={name}>{name}</li>
                 ))}
               </ul>
