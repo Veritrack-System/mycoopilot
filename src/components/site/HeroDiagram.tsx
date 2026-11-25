@@ -1,152 +1,92 @@
 import type { CSSProperties } from "react";
 
 /**
- * Hero diagram (client review, Draft 1): a decision moving off the founder, drawn as a
- * before state (every arrow points at the founder) and an after state (every arrow points
- * at an owner). Desktop only; on phones the headline carries the hero.
+ * Hero diagram (client review, Draft 1): a decision moving off the founder.
+ * One shape drawn twice so the eye compares like with like: before, every arrow points in
+ * at the founder; after, the same arrows point out to an owner for each decision.
+ * Desktop only; on phones and tablets the headline carries the hero.
  */
 
-const DECISIONS = ["Approvals", "Pricing", "Delivery", "Reporting"] as const;
+const DECISIONS = [
+  { label: "Approvals", x: 32, y: 40, labelY: 20 },
+  { label: "Pricing", x: 168, y: 40, labelY: 20 },
+  { label: "Delivery", x: 32, y: 158, labelY: 186 },
+  { label: "Reporting", x: 168, y: 158, labelY: 186 },
+] as const;
 
-const W = 420;
-const PILL_W = 118;
-const PILL_H = 32;
-const ARROW_START = PILL_W + 10;
-const GAP = 42; // vertical distance between decision rows
-
-const BEFORE_TOP = 88;
-const AFTER_OFFSET = 262;
-const FOUNDER = { x: 344, y: BEFORE_TOP + (GAP * 3) / 2, r: 26 };
-const OWNER_X = 300;
+const CENTER = { x: 100, y: 92 };
+const VIEWBOX = "0 0 200 194";
 
 type Pt = { x: number; y: number };
 
-function arrowHead(from: Pt, to: Pt, size = 7) {
+/** Point `dist` along the line from `a` towards `b`. */
+function along(a: Pt, b: Pt, dist: number): Pt {
+  const len = Math.hypot(b.x - a.x, b.y - a.y);
+  return { x: a.x + ((b.x - a.x) / len) * dist, y: a.y + ((b.y - a.y) / len) * dist };
+}
+
+function Arrow({ from, to, index }: { from: Pt; to: Pt; index: number }) {
   const angle = Math.atan2(to.y - from.y, to.x - from.x);
-  const left = angle + Math.PI * 0.82;
-  const right = angle - Math.PI * 0.82;
-  const p = (a: number) => `${to.x + Math.cos(a) * size},${to.y + Math.sin(a) * size}`;
-  return `${p(left)} ${to.x},${to.y} ${p(right)}`;
-}
-
-function Arrow({ from, to, index, tone }: { from: Pt; to: Pt; index: number; tone: string }) {
+  const head = (a: number) => `${to.x + Math.cos(a) * 6},${to.y + Math.sin(a) * 6}`;
   return (
-    <g
-      className={`cp-diagram__arrow cp-diagram__arrow--${tone}`}
-      style={{ "--n": index } as CSSProperties}
-    >
+    <g className="cp-shift__arrow" style={{ "--n": index } as CSSProperties}>
       <path d={`M${from.x} ${from.y} L${to.x} ${to.y}`} pathLength={1} />
-      <polygon points={arrowHead(from, to)} />
+      <polyline points={`${head(angle + 2.6)} ${to.x},${to.y} ${head(angle - 2.6)}`} />
     </g>
   );
 }
 
-function Pill({ y, label }: { y: number; label: string }) {
+function Panel({ state }: { state: "before" | "after" }) {
+  const before = state === "before";
+  const hubR = 25;
+  const nodeR = before ? 4.5 : 6;
   return (
-    <g className="cp-diagram__pill">
-      <rect x={0} y={y - PILL_H / 2} width={PILL_W} height={PILL_H} rx={PILL_H / 2} />
-      <text x={PILL_W / 2} y={y + 5} textAnchor="middle">
-        {label}
-      </text>
-    </g>
-  );
-}
-
-function Heading({ y, label, caption }: { y: number; label: string; caption: string }) {
-  return (
-    <>
-      <text className="cp-diagram__kicker" x={0} y={y}>
-        {label}
-      </text>
-      <text className="cp-diagram__caption" x={0} y={y + 26}>
-        {caption}
-      </text>
-    </>
+    <svg className="cp-shift__svg" viewBox={VIEWBOX} aria-hidden="true" focusable="false">
+      {DECISIONS.map((d, i) => {
+        const node = { x: d.x, y: d.y };
+        // Before: decision -> founder. After: founder -> owner.
+        const from = before ? along(node, CENTER, nodeR + 5) : along(CENTER, node, hubR + 5);
+        const to = before ? along(CENTER, node, hubR + 11) : along(node, CENTER, nodeR + 5);
+        return <Arrow key={d.label} from={from} to={to} index={i} />;
+      })}
+      <g className="cp-shift__hub">
+        <circle cx={CENTER.x} cy={CENTER.y} r={hubR} />
+        {before ? (
+          <circle className="cp-shift__strain" cx={CENTER.x} cy={CENTER.y} r={hubR + 7} />
+        ) : null}
+        <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle">
+          Founder
+        </text>
+      </g>
+      {DECISIONS.map((d, i) => (
+        <g key={d.label} className="cp-shift__node" style={{ "--n": i } as CSSProperties}>
+          <circle cx={d.x} cy={d.y} r={nodeR} />
+          <text x={d.x} y={d.labelY} textAnchor="middle">
+            {d.label}
+          </text>
+        </g>
+      ))}
+    </svg>
   );
 }
 
 export function HeroDiagram() {
-  const beforeY = DECISIONS.map((_, i) => BEFORE_TOP + i * GAP);
-  const afterY = beforeY.map((y) => y + AFTER_OFFSET);
-
-  // Stop each "before" arrow just short of the founder node.
-  const toFounder = (y: number): Pt => {
-    const dx = FOUNDER.x - ARROW_START;
-    const dy = FOUNDER.y - y;
-    const len = Math.hypot(dx, dy);
-    const stop = FOUNDER.r + 6;
-    return { x: FOUNDER.x - (dx / len) * stop, y: FOUNDER.y - (dy / len) * stop };
-  };
-
   return (
-    <svg
-      className="cp-diagram"
-      viewBox={`0 0 ${W} ${afterY[3]! + 26}`}
-      role="img"
-      aria-labelledby="cp-diagram-title"
-      focusable="false"
-    >
-      <title id="cp-diagram-title">
-        Before: every decision routes through the founder. After: each decision has an owner.
-      </title>
-
-      <g className="cp-diagram__panel cp-diagram__panel--before">
-        <Heading y={16} label="BEFORE" caption="Every decision routes through the founder." />
-        {beforeY.map((y, i) => (
-          <Arrow
-            key={DECISIONS[i]}
-            from={{ x: ARROW_START, y }}
-            to={toFounder(y)}
-            index={i}
-            tone="muted"
-          />
-        ))}
-        {beforeY.map((y, i) => (
-          <Pill key={DECISIONS[i]} y={y} label={DECISIONS[i]!} />
-        ))}
-        <g className="cp-diagram__founder">
-          <circle cx={FOUNDER.x} cy={FOUNDER.y} r={FOUNDER.r} />
-          <text x={FOUNDER.x} y={FOUNDER.y + FOUNDER.r + 22} textAnchor="middle">
-            Founder
-          </text>
-        </g>
-      </g>
-
-      <line
-        className="cp-diagram__rule"
-        x1={0}
-        x2={W}
-        y1={AFTER_OFFSET - 22}
-        y2={AFTER_OFFSET - 22}
-      />
-
-      <g className="cp-diagram__panel cp-diagram__panel--after">
-        <Heading y={AFTER_OFFSET + 16} label="AFTER" caption="Each decision has an owner." />
-        {afterY.map((y, i) => (
-          <Arrow
-            key={DECISIONS[i]}
-            from={{ x: ARROW_START, y }}
-            to={{ x: OWNER_X - 14, y }}
-            index={i + 4}
-            tone="signal"
-          />
-        ))}
-        {afterY.map((y, i) => (
-          <Pill key={DECISIONS[i]} y={y} label={DECISIONS[i]!} />
-        ))}
-        {afterY.map((y, i) => (
-          <g
-            key={DECISIONS[i]}
-            className="cp-diagram__owner"
-            style={{ "--n": i + 4 } as CSSProperties}
-          >
-            <circle cx={OWNER_X} cy={y} r={7} />
-            <text x={OWNER_X + 18} y={y + 5}>
-              Owner
-            </text>
-          </g>
-        ))}
-      </g>
-    </svg>
+    <figure className="cp-shift" aria-label="How decisions move off the founder">
+      <div className="cp-shift__panel cp-shift__panel--before">
+        <p className="cp-shift__kicker">Before</p>
+        <Panel state="before" />
+        <p className="cp-shift__caption">
+          Every decision routes through the <strong>founder</strong>.
+        </p>
+      </div>
+      <div className="cp-shift__panel cp-shift__panel--after">
+        <p className="cp-shift__kicker">After</p>
+        <Panel state="after" />
+        <p className="cp-shift__caption">
+          Each decision has an <strong>owner</strong>.
+        </p>
+      </div>
+    </figure>
   );
 }
