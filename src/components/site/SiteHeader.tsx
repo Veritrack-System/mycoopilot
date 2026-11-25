@@ -6,7 +6,7 @@ const MENU_ID = "cp-mobile-menu";
 const DESKTOP_QUERY = "(min-width: 861px)";
 
 /**
- * Global header. Transparent over the indigo hero, then a solid paper bar with a fine rule
+ * Global header. Transparent over the navy hero, then a solid paper bar with a fine rule
  * once the hero has scrolled under it. Desktop shows the nav inline; mobile shows logo,
  * booking control and a menu button that opens a full-height panel.
  */
@@ -35,7 +35,7 @@ export function SiteHeader() {
     return () => observer.disconnect();
   }, []);
 
-  // While still over the hero, add an indigo veil once the page moves so hero text
+  // While still over the hero, add a navy veil once the page moves so hero text
   // never shows through behind the logo and nav.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -107,15 +107,8 @@ export function SiteHeader() {
             aria-label={`${LOGO.alt}, back to top`}
             onClick={close}
           >
-            <img className="cp-logo--dark" src={LOGO.onDark} alt="" width={475} height={128} />
-            <img className="cp-logo--light" src={LOGO.onLight} alt="" width={475} height={128} />
-            <img
-              className="cp-logo--light cp-logo--starter"
-              src={LOGO.onLightStarter}
-              alt=""
-              width={475}
-              height={128}
-            />
+            <img className="cp-logo--dark" src={LOGO.onDark} alt="" width={433} height={119} />
+            <img className="cp-logo--light" src={LOGO.onLight} alt="" width={433} height={119} />
           </a>
 
           <nav className="cp-nav" aria-label="Primary">

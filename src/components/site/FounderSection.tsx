@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 
 /**
  * Section 06: founder biography with the experience path drawn as a signal line, and the
- * teaching point tied to handover. A portrait renders only once an approved image is set.
+ * teaching point tied to handover. The portrait space is held with a monogram until an approved image is set.
  */
 export function FounderSection() {
   return (
@@ -16,11 +16,19 @@ export function FounderSection() {
               <img
                 className="cp-founder__portrait"
                 src={founder.portrait}
-                alt="Chantel Bawuah, founder of CooPilot"
+                alt="Chantel Bawuah, founder of COOPilot"
                 loading="lazy"
                 decoding="async"
               />
-            ) : null}
+            ) : (
+              // Space held for the headshot (client review) until the approved image is supplied.
+              <div
+                className="cp-founder__portrait cp-founder__portrait--pending"
+                aria-hidden="true"
+              >
+                <span>CB</span>
+              </div>
+            )}
             <div className="cp-founder__path" data-reveal="">
               <p className="cp-label">Experience</p>
               <ol className="cp-path">

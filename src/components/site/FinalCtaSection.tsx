@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { finalCta } from "@/content/home";
 import { BOOKING_HREF, BOOKING_LABEL, CONTACT, LOGO, NAV_ITEMS } from "@/lib/site";
 
-/** Section 08: the closing booking call, then the footer, on one indigo surface. */
+/** Section 08: the closing booking call, then the footer, on one navy surface. */
 export function FinalCtaSection() {
   return (
     <div className="cp-close">
@@ -40,7 +40,7 @@ function SiteFooter() {
       <div className="cp-container">
         <div className="cp-footer__top">
           <a className="cp-footer__logo" href="#hero" aria-label={`${LOGO.alt}, back to top`}>
-            <img src={LOGO.onDark} alt="" width={475} height={128} loading="lazy" />
+            <img src={LOGO.onDark} alt="" width={433} height={119} loading="lazy" />
           </a>
           <nav aria-label="Footer">
             <ul className="cp-footer__nav">

@@ -37,7 +37,7 @@ export function ArrivalCurtain() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: var(--cp-indigo);
+          background-color: var(--cp-navy);
           background-image: radial-gradient(
             60% 70% at 85% 30%,
             rgb(var(--cp-glow) / 0.45) 0%,
@@ -77,7 +77,7 @@ export function ArrivalCurtain() {
         }
       `}</style>
       <div className="coopilot-curtain-mark">
-        <img src="/brand/coopilot-mark-light.png" alt="" />
+        <img src="/brand/coopilot-mark-white.svg" alt="" />
       </div>
     </div>
   );
