@@ -9,19 +9,19 @@ import { OutcomesSection } from "@/components/site/OutcomesSection";
 import { ProblemSection } from "@/components/site/ProblemSection";
 import { ProofSection } from "@/components/site/ProofSection";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { StickyBooking } from "@/components/site/StickyBooking";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { WaysToWorkSection } from "@/components/site/WaysToWorkSection";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CooPilot | Fractional COO for Founder-Led Businesses" },
+      { title: "COOPilot | Fractional COO for Founder-Led Businesses" },
       {
         name: "description",
         content:
-          "CooPilot helps founder-led businesses fix reporting, ownership, finance operations and delivery, so the company can run without everything going through the founder.",
+          "COOPilot helps founder-led businesses fix reporting, ownership, finance operations and delivery, so the company can run without everything going through the founder.",
       },
       { property: "og:title", content: "Your business runs on you. That is the problem we fix." },
       {
@@ -30,17 +30,18 @@ export const Route = createFileRoute("/")({
           "Practical operations support for founder-led businesses that have outgrown the way they were set up.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/brand/coopilot-og.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/brand/coopilot-og.png" },
-    ],
-    scripts: [
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:site_name", content: "COOPilot" },
+      // Crawlers (WhatsApp, LinkedIn, Slack) need an absolute image URL.
+      { property: "og:image", content: `${SITE_URL}/brand/coopilot-og.png` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
-        // Review-only: ?palette=starter previews the handoff's original Navy + Signal blue.
-        // Runs before paint so the page never flashes the default palette first.
-        children:
-          "try{if(new URLSearchParams(location.search).get('palette')==='starter')document.documentElement.setAttribute('data-palette','starter')}catch(e){}",
+        property: "og:image:alt",
+        content: "COOPilot. Your business runs on you. That is the problem we fix.",
       },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_URL}/brand/coopilot-og.png` },
     ],
   }),
   component: Index,
@@ -65,7 +66,6 @@ function Index() {
         </main>
         <FinalCtaSection />
       </div>
-      <StickyBooking />
     </>
   );
 }
