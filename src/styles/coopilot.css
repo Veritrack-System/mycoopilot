@@ -1,32 +1,30 @@
 /*
- * CooPilot design system: tokens + section styles.
- * Roles follow the client handoff (Ink, Paper, dark surface, one Signal accent, Mist);
- * values are taken from the supplied logo identity.
+ * COOPilot design system: tokens + section styles.
+ * Colour follows the client handoff exactly: Ink, Paper, Mist, Navy and one Signal blue.
  * Class names use a `cp-` prefix so they never collide with the inherited framer CSS.
  */
 
 :root {
   /* Colour */
-  /* Handoff "starter brand system", kept exactly: Ink, Paper, Mist. */
+  /* Handoff brand system, kept exactly: Ink, Paper, Mist. */
   --cp-ink: #111318; /* Ink: headings + text on light */
   --cp-ink-soft: rgb(17 19 24 / 0.74); /* secondary text on light (AA on paper) */
   --cp-paper: #f5f3ee; /* Paper: main light surface */
   --cp-mist: #dde3ec; /* Mist: rules, cards, supporting detail */
-  /* The two handoff hues tuned to the supplied logo:
-     Navy -> logo Indigo (dark surfaces), Signal blue -> logo Violet (the one accent). */
-  --cp-indigo: #140149; /* dark surfaces: hero, proof, footer (logo wordmark ink) */
-  --cp-indigo-2: #1d0866; /* raised surface on indigo */
-  --cp-violet: #5a1be2; /* the one accent: CTA on light, focus, active node */
-  --cp-violet-hover: #4a12c4;
-  --cp-iris: #7a5bf7; /* signal lines on dark */
-  --cp-lavender: #c2b0f2; /* emphasis text on dark */
-  --cp-glow: 90 27 226; /* accent glow (RGB channels) */
-  --cp-glow-2: 122 91 247;
+  /* Handoff Navy + Signal blue, approved by the client in the Draft 1 review. */
+  --cp-navy: #14253d; /* dark surfaces: hero, proof, footer */
+  --cp-navy-2: #1c3252; /* raised surface on navy */
+  --cp-blue: #315eeb; /* Signal blue, the one accent: CTA on light, focus, logo */
+  --cp-blue-hover: #274ed0;
+  --cp-blue-line: #5b80f2; /* signal lines on dark */
+  --cp-blue-soft: #aebff5; /* emphasis text on dark */
+  --cp-glow: 49 94 235; /* accent glow (RGB channels) */
+  --cp-glow-2: 91 128 242;
   --cp-white: #ffffff;
   --cp-on-dark: #ffffff;
   --cp-on-dark-soft: rgb(255 255 255 / 0.8);
   --cp-on-dark-muted: rgb(255 255 255 / 0.68);
-  --cp-rule-dark: rgb(194 176 242 / 0.22);
+  --cp-rule-dark: rgb(174 191 245 / 0.22);
   --cp-paper-glass: rgb(245 243 238 / 0.96);
 
   /* Type */
@@ -57,20 +55,6 @@
   :root {
     --cp-header-h: 4.5rem; /* 72 */
   }
-}
-
-/* Review preview of the handoff's unmodified starter palette (Navy + Signal blue).
-   Open the site with ?palette=starter to see it. Neutrals are already the handoff values. */
-:root[data-palette="starter"] {
-  --cp-indigo: #14253d;
-  --cp-indigo-2: #1c3252;
-  --cp-violet: #315eeb;
-  --cp-violet-hover: #274ed0;
-  --cp-iris: #5b80f2;
-  --cp-lavender: #aebff5;
-  --cp-glow: 49 94 235;
-  --cp-glow-2: 91 128 242;
-  --cp-rule-dark: rgb(174 191 245 / 0.22);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -127,28 +111,28 @@
   transform: translateY(1px);
 }
 .cp-btn:focus-visible {
-  outline: 2px solid var(--cp-violet);
+  outline: 2px solid var(--cp-blue);
   outline-offset: 3px;
 }
 
 .cp-btn--on-light {
-  background: var(--cp-violet);
+  background: var(--cp-blue);
   color: var(--cp-white);
 }
 .cp-btn--on-light:hover {
-  background: var(--cp-violet-hover);
+  background: var(--cp-blue-hover);
 }
 
 .cp-btn--on-dark {
   background: var(--cp-paper);
-  color: var(--cp-indigo);
+  color: var(--cp-navy);
 }
 .cp-btn--on-dark:hover {
   background: var(--cp-white);
   box-shadow: 0 0 0 4px rgb(194 176 242 / 0.25);
 }
 .cp-btn--on-dark:focus-visible {
-  outline-color: var(--cp-lavender);
+  outline-color: var(--cp-blue-soft);
 }
 
 .cp-btn--lg {
@@ -169,7 +153,7 @@
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background: var(--cp-paper);
-  color: var(--cp-indigo);
+  color: var(--cp-navy);
   font-family: var(--cp-font);
   font-size: var(--cp-small);
   font-weight: 600;
@@ -178,7 +162,7 @@
 }
 .cp-skip:focus {
   transform: none;
-  outline: 2px solid var(--cp-violet);
+  outline: 2px solid var(--cp-blue);
   outline-offset: 2px;
 }
 
@@ -197,10 +181,10 @@
     box-shadow var(--cp-dur-fast) var(--cp-ease),
     color var(--cp-dur-fast) var(--cp-ease);
 }
-/* Solid indigo once the page moves: same colour as the hero, so it reads as one surface
+/* Solid navy once the page moves: same colour as the hero, so it reads as one surface
    and nothing scrolling underneath can show through behind the logo. */
 .cp-header[data-state="veil"] {
-  background: var(--cp-indigo);
+  background: var(--cp-navy);
   box-shadow: inset 0 -1px 0 var(--cp-rule-dark);
 }
 .cp-header[data-state="solid"] {
@@ -218,7 +202,7 @@
 }
 .cp-header[data-open] {
   color: var(--cp-on-dark);
-  background: var(--cp-indigo);
+  background: var(--cp-navy);
   box-shadow: inset 0 -1px 0 var(--cp-rule-dark);
 }
 
@@ -234,7 +218,7 @@
   display: block;
   flex: none;
   height: 1.75rem; /* 28 */
-  aspect-ratio: 475 / 128;
+  aspect-ratio: 433 / 119; /* coopilot-logo-*.svg viewBox */
   border-radius: 4px;
 }
 .cp-header__logo img {
@@ -252,14 +236,6 @@
 }
 .cp-header[data-state="solid"]:not([data-open]) .cp-logo--dark {
   opacity: 0;
-}
-/* Light-header logo follows the palette: violet by default, Signal blue in the starter preview. */
-.cp-header__logo .cp-logo--starter,
-:root[data-palette="starter"] .cp-header__logo .cp-logo--light:not(.cp-logo--starter) {
-  display: none;
-}
-:root[data-palette="starter"] .cp-header__logo .cp-logo--starter {
-  display: block;
 }
 .cp-header__logo:focus-visible {
   outline: 2px solid currentColor;
@@ -316,22 +292,22 @@
   border-radius: 2px;
 }
 
-/* Header CTA: paper on the indigo hero, violet once the header is solid. */
+/* Header CTA: paper on the navy hero, violet once the header is solid. */
 .cp-header__cta {
   min-height: 2.5rem;
   padding: 0 1.125rem;
   font-size: 0.875rem;
 }
 .cp-header[data-state="solid"]:not([data-open]) .cp-header__cta {
-  background: var(--cp-violet);
+  background: var(--cp-blue);
   color: var(--cp-white);
   box-shadow: none;
 }
 .cp-header[data-state="solid"]:not([data-open]) .cp-header__cta:hover {
-  background: var(--cp-violet-hover);
+  background: var(--cp-blue-hover);
 }
 .cp-header[data-state="solid"]:not([data-open]) .cp-header__cta:focus-visible {
-  outline-color: var(--cp-violet);
+  outline-color: var(--cp-blue);
 }
 
 .cp-header__toggle {
@@ -381,7 +357,7 @@
 .cp-menu {
   height: calc(100dvh - var(--cp-header-h));
   overflow-y: auto;
-  background: var(--cp-indigo);
+  background: var(--cp-navy);
   overscroll-behavior: contain;
 }
 .cp-menu[hidden] {
@@ -416,14 +392,14 @@
 }
 .cp-menu__link span {
   min-width: 1.5rem;
-  color: var(--cp-lavender);
+  color: var(--cp-blue-soft);
   font-size: var(--cp-small);
   font-weight: 600;
   letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 .cp-menu__link:focus-visible {
-  outline: 2px solid var(--cp-lavender);
+  outline: 2px solid var(--cp-blue-soft);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -488,7 +464,7 @@
   width: 100%;
   font-family: var(--cp-font);
   color: var(--cp-on-dark);
-  background-color: var(--cp-indigo);
+  background-color: var(--cp-navy);
 }
 .cp-hero__glow {
   position: absolute;
@@ -523,7 +499,7 @@
 
 .cp-hero__eyebrow {
   margin: 0;
-  color: var(--cp-lavender);
+  color: var(--cp-blue-soft);
   font-size: calc(var(--cp-eyebrow) - 2px);
   font-weight: 600;
   letter-spacing: 0;
@@ -541,7 +517,7 @@
 }
 .cp-hero__title span {
   display: block;
-  color: var(--cp-lavender);
+  color: var(--cp-blue-soft);
 }
 
 .cp-hero__intro {
@@ -628,83 +604,101 @@
   }
 }
 
-/* ---------- Signal path ---------- */
+/* ---------- Hero diagram: before -> after ---------- */
 
-.cp-signal {
+.cp-diagram {
   display: block;
   width: 100%;
+  max-width: 26rem;
   height: auto;
+  margin-left: auto;
   overflow: visible;
   font-family: var(--cp-font);
 }
-.cp-signal--vertical {
-  max-width: 26rem;
-  margin-left: auto;
-}
-.cp-signal--horizontal {
-  display: none;
-  max-width: 26rem;
-}
+/* Phones and tablets: the headline carries the hero (client review fallback). */
 @media (max-width: 959.98px) {
-  .cp-signal--vertical {
+  .cp-hero__visual {
     display: none;
   }
-  .cp-signal--horizontal {
-    display: block;
-  }
 }
-
-.cp-signal__ghost {
-  fill: none;
-  stroke: var(--cp-rule-dark);
-  stroke-width: 1.5;
+.cp-diagram__kicker {
+  fill: var(--cp-blue-soft);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
-.cp-signal__line {
-  fill: none;
-  stroke: var(--cp-iris);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.cp-signal__node circle {
-  fill: var(--cp-indigo);
-  stroke: var(--cp-iris);
-  stroke-width: 1.5;
-}
-.cp-signal__node--end circle.cp-signal__core {
-  fill: var(--cp-violet);
-  stroke: var(--cp-lavender);
-}
-.cp-signal__node--end circle.cp-signal__halo {
-  fill: rgb(var(--cp-glow-2) / 0.18);
-  stroke: none;
-}
-.cp-signal__label {
+.cp-diagram__caption {
   fill: var(--cp-on-dark);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
-.cp-signal__num {
-  fill: var(--cp-lavender);
-  font-size: 12px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
+.cp-diagram__rule {
+  stroke: var(--cp-rule-dark);
+  stroke-width: 1;
 }
-.cp-signal--horizontal .cp-signal__label {
-  font-size: 13px;
+.cp-diagram__pill rect {
+  fill: var(--cp-navy-2);
+  stroke: rgb(255 255 255 / 0.22);
+  stroke-width: 1;
+}
+.cp-diagram__pill text {
+  fill: var(--cp-on-dark-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.cp-diagram__arrow path {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.cp-diagram__arrow--muted path {
+  stroke: rgb(255 255 255 / 0.4);
+}
+.cp-diagram__arrow--muted polygon {
+  fill: rgb(255 255 255 / 0.55);
+}
+.cp-diagram__arrow--signal path {
+  stroke: var(--cp-blue-line);
+}
+.cp-diagram__arrow--signal polygon {
+  fill: var(--cp-blue-line);
+}
+.cp-diagram__founder circle {
+  fill: rgb(255 255 255 / 0.08);
+  stroke: rgb(255 255 255 / 0.55);
+  stroke-width: 1.5;
+}
+.cp-diagram__founder text,
+.cp-diagram__owner text {
+  fill: var(--cp-on-dark);
+  font-size: 14px;
+  font-weight: 600;
+}
+.cp-diagram__owner circle {
+  fill: var(--cp-blue);
+  stroke: var(--cp-blue-soft);
+  stroke-width: 1.5;
 }
 
+/* Draw once: the before panel converges on the founder, then the after panel hands off. */
 @media (prefers-reduced-motion: no-preference) {
-  .cp-signal__line {
+  .cp-diagram__arrow path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: cp-draw 1.6s var(--cp-ease) 0.5s forwards;
+    animation: cp-draw 700ms var(--cp-ease) forwards;
+    animation-delay: calc(0.6s + var(--n, 0) * 0.14s + var(--panel-delay, 0s));
   }
-  .cp-signal__node {
+  .cp-diagram__arrow polygon,
+  .cp-diagram__owner {
     opacity: 0;
-    animation: cp-node-in 500ms var(--cp-ease) forwards;
-    animation-delay: calc(0.5s + var(--n, 0) * 0.42s);
+    animation: cp-node-in 300ms var(--cp-ease) forwards;
+    animation-delay: calc(1.15s + var(--n, 0) * 0.14s + var(--panel-delay, 0s));
+  }
+  .cp-diagram__panel--after {
+    --panel-delay: 0.5s;
+    opacity: 0;
+    animation: cp-node-in 500ms var(--cp-ease) 1.3s forwards;
   }
 }
 @keyframes cp-draw {

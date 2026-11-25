@@ -199,12 +199,12 @@
   --color-site-import-border: var(--site-import-border);
   --color-site-import-card: var(--site-import-card);
   --color-site-import-muted: var(--site-import-muted);
-  /* CooPilot brand tokens (values live in src/styles/coopilot.css) */
-  --color-cp-indigo: var(--cp-indigo);
+  /* COOPilot brand tokens (values live in src/styles/coopilot.css) */
+  --color-cp-navy: var(--cp-navy);
   --color-cp-ink: var(--cp-ink);
-  --color-cp-violet: var(--cp-violet);
-  --color-cp-iris: var(--cp-iris);
-  --color-cp-lavender: var(--cp-lavender);
+  --color-cp-blue: var(--cp-blue);
+  --color-cp-blue-line: var(--cp-blue-line);
+  --color-cp-blue-soft: var(--cp-blue-soft);
   --color-cp-mist: var(--cp-mist);
   --color-cp-paper: var(--cp-paper);
 }
