@@ -25,11 +25,27 @@ function along(a: Pt, b: Pt, dist: number): Pt {
   return { x: a.x + ((b.x - a.x) / len) * dist, y: a.y + ((b.y - a.y) / len) * dist };
 }
 
-function Arrow({ from, to, index }: { from: Pt; to: Pt; index: number }) {
+// Presentation attributes below are a fallback only: the stylesheet overrides them, but they
+// keep the diagram legible (never black shapes) if the CSS is late or missing from a deploy.
+const WHITE = "#ffffff";
+const BLUE = "#315eeb";
+const BLUE_LINE = "#5b80f2";
+const BLUE_SOFT = "#aebff5";
+const NAVY = "#14253d";
+
+function Arrow({ from, to, index, stroke }: { from: Pt; to: Pt; index: number; stroke: string }) {
   const angle = Math.atan2(to.y - from.y, to.x - from.x);
   const head = (a: number) => `${to.x + Math.cos(a) * 6},${to.y + Math.sin(a) * 6}`;
   return (
-    <g className="cp-shift__arrow" style={{ "--n": index } as CSSProperties}>
+    <g
+      className="cp-shift__arrow"
+      style={{ "--n": index } as CSSProperties}
+      fill="none"
+      stroke={stroke}
+      strokeWidth={1.25}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d={`M${from.x} ${from.y} L${to.x} ${to.y}`} pathLength={1} />
       <polyline points={`${head(angle + 2.6)} ${to.x},${to.y} ${head(angle - 2.6)}`} />
     </g>
@@ -41,26 +57,67 @@ function Panel({ state }: { state: "before" | "after" }) {
   const hubR = 25;
   const nodeR = before ? 4.5 : 6;
   return (
-    <svg className="cp-shift__svg" viewBox={VIEWBOX} aria-hidden="true" focusable="false">
+    <svg
+      className="cp-shift__svg"
+      viewBox={VIEWBOX}
+      width={200}
+      height={194}
+      aria-hidden="true"
+      focusable="false"
+      fontSize={12.5}
+      fontWeight={500}
+      fill={WHITE}
+    >
       {DECISIONS.map((d, i) => {
         const node = { x: d.x, y: d.y };
         // Before: decision -> founder. After: founder -> owner.
         const from = before ? along(node, CENTER, nodeR + 5) : along(CENTER, node, hubR + 5);
         const to = before ? along(CENTER, node, hubR + 11) : along(node, CENTER, nodeR + 5);
-        return <Arrow key={d.label} from={from} to={to} index={i} />;
+        return (
+          <Arrow
+            key={d.label}
+            from={from}
+            to={to}
+            index={i}
+            stroke={before ? "rgb(255 255 255 / 0.42)" : BLUE_LINE}
+          />
+        );
       })}
       <g className="cp-shift__hub">
-        <circle cx={CENTER.x} cy={CENTER.y} r={hubR} />
+        <circle
+          cx={CENTER.x}
+          cy={CENTER.y}
+          r={hubR}
+          fill={before ? "rgb(255 255 255 / 0.1)" : "none"}
+          stroke={before ? "rgb(255 255 255 / 0.7)" : "rgb(255 255 255 / 0.4)"}
+          strokeWidth={1.25}
+          strokeDasharray={before ? undefined : "3 3"}
+        />
         {before ? (
-          <circle className="cp-shift__strain" cx={CENTER.x} cy={CENTER.y} r={hubR + 7} />
+          <circle
+            className="cp-shift__strain"
+            cx={CENTER.x}
+            cy={CENTER.y}
+            r={hubR + 7}
+            fill="none"
+            stroke="rgb(255 255 255 / 0.16)"
+            strokeDasharray="2 3"
+          />
         ) : null}
-        <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle">
+        <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle" fontSize={10.5} fontWeight={600}>
           Founder
         </text>
       </g>
       {DECISIONS.map((d, i) => (
         <g key={d.label} className="cp-shift__node" style={{ "--n": i } as CSSProperties}>
-          <circle cx={d.x} cy={d.y} r={nodeR} />
+          <circle
+            cx={d.x}
+            cy={d.y}
+            r={nodeR}
+            fill={before ? NAVY : BLUE}
+            stroke={before ? "rgb(255 255 255 / 0.5)" : BLUE_SOFT}
+            strokeWidth={1.25}
+          />
           <text x={d.x} y={d.labelY} textAnchor="middle">
             {d.label}
           </text>

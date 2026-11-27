@@ -606,13 +606,14 @@
 
 /* ---------- Hero diagram: before -> after ---------- */
 
-.cp-diagram {
-  display: block;
-  width: 100%;
-  max-width: 26rem;
-  height: auto;
-  margin-left: auto;
-  overflow: visible;
+.cp-shift {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 28rem;
+  margin: 0 0 0 auto;
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 0.03);
+  box-shadow: inset 0 0 0 1px var(--cp-rule-dark);
   font-family: var(--cp-font);
 }
 /* Phones and tablets: the headline carries the hero (client review fallback). */
@@ -621,84 +622,146 @@
     display: none;
   }
 }
-.cp-diagram__kicker {
-  fill: var(--cp-blue-soft);
-  font-size: 12px;
+.cp-shift__panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.375rem 1.625rem;
+}
+.cp-shift__panel + .cp-shift__panel {
+  box-shadow: inset 1px 0 0 var(--cp-rule-dark);
+}
+.cp-shift__kicker {
+  margin: 0;
+  color: var(--cp-on-dark-muted);
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
-.cp-diagram__caption {
-  fill: var(--cp-on-dark);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.cp-shift__panel--after .cp-shift__kicker {
+  color: var(--cp-blue-soft);
 }
-.cp-diagram__rule {
-  stroke: var(--cp-rule-dark);
-  stroke-width: 1;
+.cp-shift__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 1.125rem 1.25rem;
+  overflow: visible;
 }
-.cp-diagram__pill rect {
-  fill: var(--cp-navy-2);
-  stroke: rgb(255 255 255 / 0.22);
-  stroke-width: 1;
+/* Narrow desktop column (960-1199px): keep the diagram labels at a readable size. */
+@media (max-width: 1199.98px) {
+  .cp-shift__panel {
+    padding: 1.25rem 0.875rem 1.375rem;
+  }
+  .cp-shift .cp-shift__svg text {
+    font-size: 14.5px;
+  }
+  .cp-shift .cp-shift__svg .cp-shift__hub text {
+    font-size: 12px;
+  }
 }
-.cp-diagram__pill text {
-  fill: var(--cp-on-dark-soft);
-  font-size: 13.5px;
+.cp-shift__caption {
+  margin: auto 0 0;
+  color: var(--cp-on-dark-soft);
+  font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.45;
+  text-wrap: balance;
 }
-.cp-diagram__arrow path {
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-}
-.cp-diagram__arrow--muted path {
-  stroke: rgb(255 255 255 / 0.4);
-}
-.cp-diagram__arrow--muted polygon {
-  fill: rgb(255 255 255 / 0.55);
-}
-.cp-diagram__arrow--signal path {
-  stroke: var(--cp-blue-line);
-}
-.cp-diagram__arrow--signal polygon {
-  fill: var(--cp-blue-line);
-}
-.cp-diagram__founder circle {
-  fill: rgb(255 255 255 / 0.08);
-  stroke: rgb(255 255 255 / 0.55);
-  stroke-width: 1.5;
-}
-.cp-diagram__founder text,
-.cp-diagram__owner text {
-  fill: var(--cp-on-dark);
-  font-size: 14px;
+.cp-shift__caption strong {
+  color: var(--cp-on-dark);
   font-weight: 600;
-}
-.cp-diagram__owner circle {
-  fill: var(--cp-blue);
-  stroke: var(--cp-blue-soft);
-  stroke-width: 1.5;
 }
 
-/* Draw once: the before panel converges on the founder, then the after panel hands off. */
+.cp-shift__svg text {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.cp-shift__svg .cp-shift__hub text {
+  font-size: 10.5px;
+  letter-spacing: 0;
+}
+.cp-shift__arrow path,
+.cp-shift__arrow polyline {
+  fill: none;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Before: muted, everything converging on one overloaded node. */
+.cp-shift__panel--before .cp-shift__arrow path,
+.cp-shift__panel--before .cp-shift__arrow polyline {
+  stroke: rgb(255 255 255 / 0.42);
+}
+.cp-shift__panel--before .cp-shift__hub circle {
+  fill: rgb(255 255 255 / 0.1);
+  stroke: rgb(255 255 255 / 0.7);
+  stroke-width: 1.25;
+}
+.cp-shift__panel--before .cp-shift__hub .cp-shift__strain {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.16);
+  stroke-dasharray: 2 3;
+}
+.cp-shift__panel--before .cp-shift__node circle {
+  fill: var(--cp-navy);
+  stroke: rgb(255 255 255 / 0.5);
+  stroke-width: 1.25;
+}
+.cp-shift__panel--before text {
+  fill: var(--cp-on-dark-muted);
+}
+.cp-shift__panel--before .cp-shift__hub text {
+  fill: var(--cp-on-dark);
+  font-weight: 600;
+}
+
+/* After: the same shape in Signal blue, each decision landing on an owner. */
+.cp-shift__panel--after .cp-shift__arrow path,
+.cp-shift__panel--after .cp-shift__arrow polyline {
+  stroke: var(--cp-blue-line);
+}
+.cp-shift__panel--after .cp-shift__hub circle {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.4);
+  stroke-dasharray: 3 3;
+  stroke-width: 1.25;
+}
+.cp-shift__panel--after .cp-shift__hub text {
+  fill: var(--cp-on-dark-muted);
+}
+.cp-shift__panel--after .cp-shift__node circle {
+  fill: var(--cp-blue);
+  stroke: var(--cp-blue-soft);
+  stroke-width: 1.25;
+}
+.cp-shift__panel--after .cp-shift__node text {
+  fill: var(--cp-on-dark);
+  font-weight: 600;
+}
+
+/* Draw once: before converges, then after hands off. */
 @media (prefers-reduced-motion: no-preference) {
-  .cp-diagram__arrow path {
+  .cp-shift__arrow path {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: cp-draw 700ms var(--cp-ease) forwards;
-    animation-delay: calc(0.6s + var(--n, 0) * 0.14s + var(--panel-delay, 0s));
+    animation: cp-draw 650ms var(--cp-ease) forwards;
+    animation-delay: calc(var(--panel-delay, 0.6s) + var(--n, 0) * 0.1s);
   }
-  .cp-diagram__arrow polygon,
-  .cp-diagram__owner {
+  .cp-shift__arrow polyline {
+    opacity: 0;
+    animation: cp-node-in 250ms var(--cp-ease) forwards;
+    animation-delay: calc(var(--panel-delay, 0.6s) + 0.5s + var(--n, 0) * 0.1s);
+  }
+  .cp-shift__panel--after {
+    --panel-delay: 1.5s;
+  }
+  .cp-shift__panel--after .cp-shift__node circle {
     opacity: 0;
     animation: cp-node-in 300ms var(--cp-ease) forwards;
-    animation-delay: calc(1.15s + var(--n, 0) * 0.14s + var(--panel-delay, 0s));
-  }
-  .cp-diagram__panel--after {
-    --panel-delay: 0.5s;
-    opacity: 0;
-    animation: cp-node-in 500ms var(--cp-ease) 1.3s forwards;
+    animation-delay: calc(2.05s + var(--n, 0) * 0.1s);
   }
 }
 @keyframes cp-draw {
