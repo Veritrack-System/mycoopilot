@@ -629,17 +629,16 @@ body {
   max-width: 18rem;
   aspect-ratio: 4 / 5;
   margin-top: 2rem;
+  height: auto;
   object-fit: cover;
-  border-radius: var(--cp-card-radius);
-  filter: saturate(0.85);
+  object-position: center top;
+  border-radius: 4px;
+  /* Flat warm neutral: shows while the photograph loads and behind the pending monogram. */
+  background: #e9e5dd;
 }
 .cp-founder__portrait--pending {
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(80% 60% at 30% 20%, rgb(var(--cp-glow) / 0.14), transparent 70%),
-    var(--cp-white);
-  box-shadow: inset 0 0 0 1px var(--cp-mist);
 }
 .cp-founder__portrait--pending span {
   color: var(--cp-blue);
@@ -660,9 +659,9 @@ body {
   position: absolute;
   top: 0.55rem;
   bottom: 0.55rem;
-  left: 0.3125rem;
-  width: 1.5px;
-  background: var(--cp-mist);
+  left: calc(0.3125rem - 0.5px);
+  width: 1px;
+  background: rgb(17 19 24 / 0.12);
 }
 .cp-path__step {
   position: relative;
@@ -675,13 +674,14 @@ body {
 .cp-path__step::before {
   content: "";
   position: absolute;
-  top: 0.3rem;
-  left: 0;
-  width: 0.625rem;
-  height: 0.625rem;
+  /* 8px indicator on the same centre line as the connector. */
+  top: calc(0.3rem + 1px);
+  left: 1px;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: var(--cp-paper);
-  box-shadow: inset 0 0 0 1.5px var(--cp-blue-line);
+  box-shadow: inset 0 0 0 1px rgb(17 19 24 / 0.32);
 }
 .cp-path__step--now {
   color: var(--cp-blue);
@@ -689,7 +689,7 @@ body {
 }
 .cp-path__step--now::before {
   background: var(--cp-blue);
-  box-shadow: 0 0 0 4px rgb(var(--cp-glow) / 0.15);
+  box-shadow: none;
 }
 
 .cp-founder__para {
