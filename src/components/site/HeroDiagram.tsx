@@ -64,7 +64,7 @@ function Panel({ state }: { state: "before" | "after" }) {
       height={194}
       aria-hidden="true"
       focusable="false"
-      fontSize={12.5}
+      fontSize={13}
       fontWeight={500}
       fill={WHITE}
     >
@@ -72,7 +72,7 @@ function Panel({ state }: { state: "before" | "after" }) {
         const node = { x: d.x, y: d.y };
         // Before: decision -> founder. After: founder -> owner.
         const from = before ? along(node, CENTER, nodeR + 5) : along(CENTER, node, hubR + 5);
-        const to = before ? along(CENTER, node, hubR + 11) : along(node, CENTER, nodeR + 5);
+        const to = before ? along(CENTER, node, hubR + 6) : along(node, CENTER, nodeR + 5);
         return (
           <Arrow
             key={d.label}
@@ -91,20 +91,8 @@ function Panel({ state }: { state: "before" | "after" }) {
           fill={before ? "rgb(255 255 255 / 0.1)" : "none"}
           stroke={before ? "rgb(255 255 255 / 0.7)" : "rgb(255 255 255 / 0.4)"}
           strokeWidth={1.25}
-          strokeDasharray={before ? undefined : "3 3"}
         />
-        {before ? (
-          <circle
-            className="cp-shift__strain"
-            cx={CENTER.x}
-            cy={CENTER.y}
-            r={hubR + 7}
-            fill="none"
-            stroke="rgb(255 255 255 / 0.16)"
-            strokeDasharray="2 3"
-          />
-        ) : null}
-        <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle" fontSize={10.5} fontWeight={600}>
+        <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle" fontSize={11} fontWeight={600}>
           Founder
         </text>
       </g>
