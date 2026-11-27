@@ -6,7 +6,10 @@
  *   src/routes/__root.tsx and name the family in a --font-* token in @theme inline below.
  */
 @import "tailwindcss" source(none);
-@source "../src";
+/* Scan only what the public site renders, so unused shadcn/ui utilities do not ship in the
+   page CSS. Add "../src/components/ui" (or the Control Centre folders) when those UIs go live. */
+@source "../src/routes";
+@source "../src/components/site";
 @import "tw-animate-css";
 @import "./styles/coopilot.css";
 @import "./styles/sections.css";
