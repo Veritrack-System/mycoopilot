@@ -722,13 +722,16 @@
 .cp-shift__panel--after .cp-shift__arrow polyline {
   stroke: var(--cp-blue-line);
 }
+/* After: the founder steps back, a quiet dashed outline with no fill and a muted label. */
 .cp-shift__panel--after .cp-shift__hub circle {
   fill: none;
-  stroke: rgb(255 255 255 / 0.45);
+  stroke: rgb(255 255 255 / 0.34);
   stroke-width: 1.25;
+  stroke-dasharray: 3 3;
 }
 .cp-shift__panel--after .cp-shift__hub text {
-  fill: var(--cp-on-dark-soft);
+  fill: var(--cp-on-dark-muted);
+  font-weight: 500;
 }
 .cp-shift__panel--after .cp-shift__node circle {
   fill: var(--cp-blue);

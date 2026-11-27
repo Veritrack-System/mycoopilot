@@ -89,8 +89,9 @@ function Panel({ state }: { state: "before" | "after" }) {
           cy={CENTER.y}
           r={hubR}
           fill={before ? "rgb(255 255 255 / 0.1)" : "none"}
-          stroke={before ? "rgb(255 255 255 / 0.7)" : "rgb(255 255 255 / 0.4)"}
+          stroke={before ? "rgb(255 255 255 / 0.7)" : "rgb(255 255 255 / 0.34)"}
           strokeWidth={1.25}
+          strokeDasharray={before ? undefined : "3 3"}
         />
         <text x={CENTER.x} y={CENTER.y + 4} textAnchor="middle" fontSize={11} fontWeight={600}>
           Founder
